@@ -1,0 +1,369 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Robuxindo Store Robuxindo Store" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Robuxindo Store" [ref=e6]
+        - generic [ref=e7]:
+          - text: Robuxindo
+          - text: Store
+      - navigation [ref=e8]:
+        - link "Beranda" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Beli Sekarang" [ref=e10] [cursor=pointer]:
+          - /url: "#produk"
+        - link "Beli Item Roblox" [ref=e11] [cursor=pointer]:
+          - /url: "#layanan"
+        - link "Cek Pesanan" [ref=e12] [cursor=pointer]:
+          - /url: "#cek-pesanan"
+        - link "Bantuan" [ref=e13] [cursor=pointer]:
+          - /url: "#bantuan"
+      - generic [ref=e14]:
+        - button "Masuk" [ref=e15]
+        - link "Beli Sekarang" [ref=e16] [cursor=pointer]:
+          - /url: "#produk"
+          - text: Beli Sekarang
+          - img [ref=e17]
+  - main [ref=e19]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Proses Instan & Aman
+        - heading "Top Up Robux Cepat, Aman & Terpercaya" [level=1] [ref=e26]:
+          - text: Top Up Robux Cepat,
+          - text: Aman & Terpercaya
+        - paragraph [ref=e27]: Beli Robux dengan harga murah, proses hitungan menit, dan sudah dipercaya ribuan gamer Roblox Indonesia.
+        - generic [ref=e28]:
+          - link "Beli Sekarang" [ref=e29] [cursor=pointer]:
+            - /url: "#produk"
+            - text: Beli Sekarang
+            - img [ref=e30]
+          - link "Lihat Produk" [ref=e32] [cursor=pointer]:
+            - /url: "#layanan"
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - img [ref=e35]
+            - text: Proses < 5 Menit
+          - generic [ref=e37]:
+            - img [ref=e38]
+            - text: Transaksi Aman
+          - generic [ref=e40]:
+            - img [ref=e41]
+            - text: Rating 4.9/5
+      - generic [ref=e43]:
+        - img "Robux icon" [ref=e48]
+        - generic [ref=e50]:
+          - generic [ref=e51]: 💎
+          - generic [ref=e52]:
+            - generic [ref=e53]: 1.000 Robux
+            - generic [ref=e54]: Rp 19.500
+        - generic [ref=e56]:
+          - img [ref=e57]
+          - generic [ref=e60]:
+            - generic [ref=e61]: 10.000+ Pembeli
+            - generic [ref=e62]: 100% Aman & Terpercaya
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]: Layanan Kami
+        - heading "Semua yang Kamu Butuhkan untuk Roblox" [level=2] [ref=e68]
+        - paragraph [ref=e69]: Dari top up Robux hingga item game, semua tersedia di sini dengan harga terbaik.
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - img [ref=e73]
+          - generic [ref=e75]:
+            - heading "Robux Instan" [level=3] [ref=e76]
+            - paragraph [ref=e77]: Top up Robux langsung ke akun kamu. Proses otomatis, hitungan menit.
+          - generic [ref=e78]:
+            - generic [ref=e79]: ⚡ Terlaris
+            - link "Beli Sekarang →" [ref=e80] [cursor=pointer]:
+              - /url: "#produk"
+        - generic [ref=e81]:
+          - img [ref=e83]
+          - generic [ref=e87]:
+            - heading "Voucher & Gift" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Gift card Roblox, gamepass, dan voucher untuk hadiah maupun personal.
+          - generic [ref=e90]:
+            - generic [ref=e91]: 🎁 Populer
+            - link "Lihat Produk →" [ref=e92] [cursor=pointer]:
+              - /url: "#produk"
+        - generic [ref=e93]:
+          - img [ref=e95]
+          - generic [ref=e98]:
+            - heading "Item Roblox" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Beli item avatar, bundle, dan aksesoris Roblox dengan harga terbaik.
+          - generic [ref=e101]:
+            - generic [ref=e102]: 🆕 Baru
+            - link "Jelajahi →" [ref=e103] [cursor=pointer]:
+              - /url: "#layanan"
+        - generic [ref=e104]:
+          - img [ref=e106]
+          - generic [ref=e108]:
+            - heading "Jasa Tambahan" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Bantuan akun, setup, dan layanan khusus untuk kebutuhan Roblox kamu.
+          - link "Hubungi Kami →" [ref=e112] [cursor=pointer]:
+            - /url: "#bantuan"
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e119]: 0+
+        - generic [ref=e120]: Total Transaksi
+      - generic [ref=e121]:
+        - generic [ref=e123]: 0Juta+
+        - generic [ref=e124]: Robux Terjual
+      - generic [ref=e125]:
+        - generic [ref=e127]: 0+
+        - generic [ref=e128]: Pembeli Puas
+      - generic [ref=e129]:
+        - generic [ref=e131]: 0Tahun
+        - generic [ref=e132]: Pengalaman
+    - generic [ref=e134]:
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - generic [ref=e137]: Live Transaksi
+          - heading "Baru Saja Dibeli" [level=2] [ref=e138]
+          - paragraph [ref=e139]: Bergabung dengan ribuan gamer yang sudah top up di sini.
+        - generic [ref=e140]: Live
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - generic [ref=e144]: R
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e147]: Rezky A***
+              - generic [ref=e148]: 2 mnt lalu
+            - generic [ref=e149]:
+              - generic [ref=e150]: 1.700 Robux
+              - generic [ref=e151]: Rp 34.000
+          - img [ref=e152]
+        - generic [ref=e155]:
+          - generic [ref=e156]: F
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e159]: Fajar M***
+              - generic [ref=e160]: 4 mnt lalu
+            - generic [ref=e161]:
+              - generic [ref=e162]: 800 Robux
+              - generic [ref=e163]: Rp 16.500
+          - img [ref=e164]
+        - generic [ref=e167]:
+          - generic [ref=e168]: D
+          - generic [ref=e169]:
+            - generic [ref=e170]:
+              - generic [ref=e171]: Dinda P***
+              - generic [ref=e172]: 7 mnt lalu
+            - generic [ref=e173]:
+              - generic [ref=e174]: 4.500 Robux
+              - generic [ref=e175]: Rp 84.000
+          - img [ref=e176]
+        - generic [ref=e179]:
+          - generic [ref=e180]: B
+          - generic [ref=e181]:
+            - generic [ref=e182]:
+              - generic [ref=e183]: Bagas S***
+              - generic [ref=e184]: 11 mnt lalu
+            - generic [ref=e185]:
+              - generic [ref=e186]: 1.000 Robux
+              - generic [ref=e187]: Rp 19.500
+          - img [ref=e188]
+        - generic [ref=e191]:
+          - generic [ref=e192]: "N"
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: Nadia K***
+              - generic [ref=e196]: 15 mnt lalu
+            - generic [ref=e197]:
+              - generic [ref=e198]: Voucher Gift
+              - generic [ref=e199]: Rp 50.000
+          - img [ref=e200]
+        - generic [ref=e203]:
+          - generic [ref=e204]: R
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - generic [ref=e207]: Rizki H***
+              - generic [ref=e208]: 19 mnt lalu
+            - generic [ref=e209]:
+              - generic [ref=e210]: 400 Robux
+              - generic [ref=e211]: Rp 8.000
+          - img [ref=e212]
+    - generic [ref=e216]:
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: Trending Sekarang
+          - heading "Produk Paling Banyak Dibeli" [level=2] [ref=e220]
+          - paragraph [ref=e221]: Pilihan terbaik dari ribuan gamer Roblox Indonesia.
+        - link "Lihat Semua →" [ref=e222] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - img "400 Robux" [ref=e227]
+          - generic [ref=e228]:
+            - generic [ref=e229]: Paling Murah
+            - generic [ref=e230]:
+              - heading "Starter Pack" [level=3] [ref=e231]
+              - paragraph [ref=e232]: 400 Robux
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e235]: Rp 8.000
+                - generic [ref=e236]: Rp 10.000
+              - button "Beli Sekarang" [ref=e237]:
+                - img [ref=e238]
+                - text: Beli Sekarang
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - generic [ref=e244]: "#1 Terlaris"
+            - img "1.000 Robux" [ref=e246]
+          - generic [ref=e247]:
+            - generic [ref=e248]: ⭐ Terlaris
+            - generic [ref=e249]:
+              - heading "Popular Pack" [level=3] [ref=e250]
+              - paragraph [ref=e251]: 1.000 Robux
+            - generic [ref=e252]:
+              - generic [ref=e254]: Rp 19.500
+              - button "Beli Sekarang" [ref=e255]:
+                - img [ref=e256]
+                - text: Beli Sekarang
+        - generic [ref=e260]:
+          - img "1.700 Robux" [ref=e263]
+          - generic [ref=e264]:
+            - generic [ref=e265]: Best Value
+            - generic [ref=e266]:
+              - heading "Value Pack" [level=3] [ref=e267]
+              - paragraph [ref=e268]: 1.700 Robux
+            - generic [ref=e269]:
+              - generic [ref=e270]:
+                - generic [ref=e271]: Rp 32.000
+                - generic [ref=e272]: Rp 38.000
+              - button "Beli Sekarang" [ref=e273]:
+                - img [ref=e274]
+                - text: Beli Sekarang
+        - generic [ref=e278]:
+          - img "4.500 Robux" [ref=e281]
+          - generic [ref=e282]:
+            - generic [ref=e283]: Pro
+            - generic [ref=e284]:
+              - heading "Pro Pack" [level=3] [ref=e285]
+              - paragraph [ref=e286]: 4.500 Robux
+            - generic [ref=e287]:
+              - generic [ref=e289]: Rp 84.000
+              - button "Beli Sekarang" [ref=e290]:
+                - img [ref=e291]
+                - text: Beli Sekarang
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - generic [ref=e298]: FAQ & Bantuan
+        - heading "Ada yang Ingin Kamu Tanyakan?" [level=2] [ref=e299]
+        - paragraph [ref=e300]: Jawaban cepat untuk pertanyaan yang paling sering ditanyakan gamer Roblox Indonesia.
+      - generic [ref=e301]:
+        - generic [ref=e302]:
+          - img [ref=e304]
+          - generic [ref=e306]:
+            - heading "Butuh Bantuan?" [level=3] [ref=e307]
+            - paragraph [ref=e308]: Kami siap membantu kamu 24/7. Hubungi tim kami melalui WhatsApp untuk respons paling cepat.
+          - generic [ref=e309]:
+            - link "Chat WhatsApp" [ref=e310] [cursor=pointer]:
+              - /url: https://wa.me/628xxx
+              - img [ref=e311]
+              - text: Chat WhatsApp
+            - link "Email Support" [ref=e313] [cursor=pointer]:
+              - /url: mailto:support@robuxindo.store
+              - img [ref=e314]
+              - text: Email Support
+          - generic [ref=e317]:
+            - generic [ref=e318]:
+              - img [ref=e320]
+              - text: Respons rata-rata < 5 menit
+            - generic [ref=e323]:
+              - img [ref=e325]
+              - text: Tim berpengalaman & ramah
+            - generic [ref=e330]:
+              - img [ref=e332]
+              - text: Support aktif 24 jam / 7 hari
+        - region [ref=e335]:
+          - heading "Berapa lama proses top up Robux?" [level=3] [ref=e337]:
+            - button "Berapa lama proses top up Robux?" [ref=e338]:
+              - text: Berapa lama proses top up Robux?
+              - img
+          - heading "Apa yang harus dilakukan jika Robux belum masuk?" [level=3] [ref=e340]:
+            - button "Apa yang harus dilakukan jika Robux belum masuk?" [ref=e341]:
+              - text: Apa yang harus dilakukan jika Robux belum masuk?
+              - img
+          - heading "Metode pembayaran apa saja yang tersedia?" [level=3] [ref=e343]:
+            - button "Metode pembayaran apa saja yang tersedia?" [ref=e344]:
+              - text: Metode pembayaran apa saja yang tersedia?
+              - img
+          - heading "Apakah transaksi di Robuxindo Store aman?" [level=3] [ref=e346]:
+            - button "Apakah transaksi di Robuxindo Store aman?" [ref=e347]:
+              - text: Apakah transaksi di Robuxindo Store aman?
+              - img
+          - heading "Bagaimana cara menghubungi customer support?" [level=3] [ref=e349]:
+            - button "Bagaimana cara menghubungi customer support?" [ref=e350]:
+              - text: Bagaimana cara menghubungi customer support?
+              - img
+  - contentinfo [ref=e351]:
+    - generic [ref=e352]:
+      - generic [ref=e353]:
+        - generic [ref=e354]:
+          - link "Robuxindo Store Robuxindo Store" [ref=e355] [cursor=pointer]:
+            - /url: /
+            - img "Robuxindo Store" [ref=e356]
+            - generic [ref=e357]:
+              - text: Robuxindo
+              - text: Store
+          - paragraph [ref=e358]: Top up Robux murah, cepat, dan aman. Terpercaya oleh ribuan gamer Roblox Indonesia.
+          - generic [ref=e359]:
+            - link "WhatsApp" [ref=e360] [cursor=pointer]:
+              - /url: https://wa.me/628xxx
+              - text: 💬
+            - link "Instagram" [ref=e361] [cursor=pointer]:
+              - /url: "#"
+              - text: 📸
+            - link "TikTok" [ref=e362] [cursor=pointer]:
+              - /url: "#"
+              - text: 🎵
+            - link "Telegram" [ref=e363] [cursor=pointer]:
+              - /url: "#"
+              - text: ✈️
+        - generic [ref=e364]:
+          - heading "Pembelian" [level=4] [ref=e365]
+          - list [ref=e366]:
+            - listitem [ref=e367]:
+              - link "Beli Robux" [ref=e368] [cursor=pointer]:
+                - /url: "#produk"
+            - listitem [ref=e369]:
+              - link "Beli Item Roblox" [ref=e370] [cursor=pointer]:
+                - /url: "#layanan"
+            - listitem [ref=e371]:
+              - link "Voucher & Gift" [ref=e372] [cursor=pointer]:
+                - /url: "#layanan"
+            - listitem [ref=e373]:
+              - link "Cek Pesanan" [ref=e374] [cursor=pointer]:
+                - /url: "#cek-pesanan"
+        - generic [ref=e375]:
+          - heading "Bantuan" [level=4] [ref=e376]
+          - list [ref=e377]:
+            - listitem [ref=e378]:
+              - link "FAQ" [ref=e379] [cursor=pointer]:
+                - /url: "#bantuan"
+            - listitem [ref=e380]:
+              - link "Hubungi Kami" [ref=e381] [cursor=pointer]:
+                - /url: "#bantuan"
+            - listitem [ref=e382]:
+              - link "Cara Pembelian" [ref=e383] [cursor=pointer]:
+                - /url: "#bantuan"
+            - listitem [ref=e384]:
+              - link "Status Layanan" [ref=e385] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e386]:
+          - heading "Informasi" [level=4] [ref=e387]
+          - list [ref=e388]:
+            - listitem [ref=e389]:
+              - link "Tentang Kami" [ref=e390] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e391]:
+              - link "Kebijakan Privasi" [ref=e392] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e393]:
+              - link "Syarat & Ketentuan" [ref=e394] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e395]:
+        - paragraph [ref=e396]: Robuxindo Store adalah platform independen dan tidak berafiliasi, tidak didukung, atau disponsori oleh Roblox Corporation. “Roblox” dan “Robux” adalah merek dagang dari Roblox Corporation.
+        - paragraph [ref=e397]: © 2025 Robuxindo Store. All rights reserved.
+  - button "Open Next.js Dev Tools" [ref=e403] [cursor=pointer]:
+    - img [ref=e404]
