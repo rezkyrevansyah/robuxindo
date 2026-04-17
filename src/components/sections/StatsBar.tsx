@@ -35,7 +35,7 @@ export default function StatsBar() {
   return (
     <section className="relative z-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-[24px] border border-rb-border bg-[linear-gradient(135deg,rgba(255,253,252,0.92),rgba(250,246,241,0.96))] shadow-[0_18px_42px_rgba(110,67,48,0.1)] backdrop-blur min-[430px]:grid-cols-2 xl:grid-cols-4">
+        <div className="grid overflow-hidden rounded-[24px] border border-rb-border bg-[linear-gradient(135deg,rgba(255,253,252,0.92),rgba(250,246,241,0.96))] shadow-[0_18px_42px_rgba(110,67,48,0.1)] backdrop-blur xs:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -47,8 +47,8 @@ export default function StatsBar() {
                 "relative flex items-center gap-3.5 px-4 py-4 sm:px-5 sm:py-[18px] lg:px-6 lg:py-5",
                 "border-rb-border/90",
                 index < stats.length - 1 ? "border-b" : "",
-                index % 2 === 0 ? "min-[430px]:border-r xl:border-r" : "",
-                index >= 2 ? "min-[430px]:border-b-0" : "",
+                index % 2 === 0 ? "xs:border-r xl:border-r" : "",
+                index >= 2 ? "xs:border-b-0" : "",
                 index < stats.length - 1 ? "xl:border-b-0" : "",
                 index === stats.length - 1 ? "border-b-0" : "",
               ].join(" ")}

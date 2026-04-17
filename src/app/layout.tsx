@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import NoMotion from "@/components/providers/NoMotion";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -52,7 +53,12 @@ export default function RootLayout({
       lang="id"
       className={cn(plusJakarta.variable, "antialiased")}
     >
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <head>
+        <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+      </head>
+      <body className="min-h-screen flex flex-col">
+        <NoMotion>{children}</NoMotion>
+      </body>
     </html>
   );
 }

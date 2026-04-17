@@ -17,6 +17,9 @@ export default function Home() {
         {/* 1. Banner slider */}
         <HeroBanner />
 
+        {/* 2. Pilih Layanan — 3 cards */}
+        <LayananUtama />
+
         <section className="relative overflow-hidden bg-rb-alt py-6 sm:py-8 lg:py-10">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-y-0 right-0 w-[46%] bg-[radial-gradient(circle_at_top_right,rgba(246,194,139,0.28),transparent_62%)]" />
@@ -24,15 +27,12 @@ export default function Home() {
             <div className="absolute inset-y-0 left-0 w-[34%] bg-[radial-gradient(circle_at_left_center,rgba(255,255,255,0.4),transparent_70%)]" />
           </div>
 
-          {/* 2. Live stats bar */}
+          {/* 3. Live stats bar */}
           <StatsBar />
 
-          {/* 3. Trending products grid */}
+          {/* 4. Trending products grid */}
           <Trending />
         </section>
-
-        {/* 3. Pilih Layanan — 3 cards */}
-        <LayananUtama />
 
         {/* 4. Stats / social proof numbers */}
         <Stats />

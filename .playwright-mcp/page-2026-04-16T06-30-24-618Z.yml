@@ -1,0 +1,154 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e74] [cursor=pointer]:
+    - img [ref=e75]
+  - alert [ref=e78]: Detail Pengguna | Robuxindo Store
+  - banner [ref=e79]:
+    - generic [ref=e80]:
+      - link "Robuxindo Store Robuxindo Top up Roblox terpercaya" [ref=e81] [cursor=pointer]:
+        - /url: /
+        - img "Robuxindo Store" [ref=e82]
+        - generic [ref=e83]:
+          - paragraph [ref=e84]: Robuxindo
+          - paragraph [ref=e85]: Top up Roblox terpercaya
+      - navigation [ref=e86]:
+        - link "Produk" [ref=e87] [cursor=pointer]:
+          - /url: /produk
+        - link "Beli Gamepass" [ref=e88] [cursor=pointer]:
+          - /url: /beli-gamepass
+        - link "Robux via Login" [ref=e89] [cursor=pointer]:
+          - /url: /beli-via-login
+        - link "Cek Pesanan" [ref=e90] [cursor=pointer]:
+          - /url: /cek-pesanan
+        - link "Leaderboard" [ref=e91] [cursor=pointer]:
+          - /url: /leaderboard
+      - generic [ref=e92]:
+        - link "Keranjang" [ref=e93] [cursor=pointer]:
+          - /url: /cart
+          - img [ref=e94]
+        - button "OW Owner Profil saya" [ref=e98]:
+          - generic [ref=e100]: OW
+          - generic [ref=e101]:
+            - paragraph [ref=e102]: Owner
+            - paragraph [ref=e103]: Profil saya
+  - main [ref=e104]:
+    - generic [ref=e107]:
+      - complementary [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]: O
+          - heading "Owner" [level=1] [ref=e111]
+          - paragraph [ref=e112]: Profil pengguna untuk mengelola akun dan memantau aktivitas pembelian.
+        - generic [ref=e113]:
+          - paragraph [ref=e114]: Kontak
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - img [ref=e118]
+              - generic [ref=e121]:
+                - paragraph [ref=e122]: Email
+                - paragraph [ref=e123]: owner@yoonjae.com
+            - generic [ref=e124]:
+              - img [ref=e126]
+              - generic [ref=e128]:
+                - paragraph [ref=e129]: Nomor HP
+                - paragraph [ref=e130]: Belum diisi
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - paragraph [ref=e133]: Detail Pengguna
+          - heading "Ringkasan Akun" [level=2] [ref=e134]
+          - paragraph [ref=e135]: Halaman ini menjadi pusat informasi pengguna setelah login. Di sini user bisa melihat identitas akun, status, dan ringkasan aktivitas sebelum masuk ke halaman transaksi.
+          - generic [ref=e136]:
+            - generic [ref=e137]:
+              - img [ref=e139]
+              - paragraph [ref=e142]: Status Akun
+              - paragraph [ref=e143]: Aktif
+            - generic [ref=e144]:
+              - img [ref=e146]
+              - paragraph [ref=e149]: Pesanan Tersimpan
+              - paragraph [ref=e150]: 12 Order
+            - generic [ref=e151]:
+              - img [ref=e153]
+              - paragraph [ref=e155]: Metode Favorit
+              - paragraph [ref=e156]: QRIS
+        - generic [ref=e157]:
+          - paragraph [ref=e158]: Data Dasar
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - paragraph [ref=e161]: Nama Lengkap
+              - paragraph [ref=e162]: Owner
+            - generic [ref=e163]:
+              - paragraph [ref=e164]: Email Login
+              - paragraph [ref=e165]: owner@yoonjae.com
+            - generic [ref=e166]:
+              - paragraph [ref=e167]: Nomor HP
+              - paragraph [ref=e168]: "-"
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: Status Akun
+              - paragraph [ref=e171]: Terverifikasi
+  - contentinfo [ref=e172]:
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - link "Robuxindo Store Robuxindo Store" [ref=e176] [cursor=pointer]:
+            - /url: /
+            - img "Robuxindo Store" [ref=e177]
+            - generic [ref=e178]:
+              - text: Robuxindo
+              - text: Store
+          - paragraph [ref=e179]: Top up Robux murah, cepat, dan aman. Terpercaya oleh ribuan gamer Roblox Indonesia.
+          - generic [ref=e180]:
+            - link "WhatsApp" [ref=e181] [cursor=pointer]:
+              - /url: https://wa.me/628xxx
+              - img [ref=e182]
+            - link "Instagram" [ref=e184] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e185]
+            - link "TikTok" [ref=e187] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e188]
+            - link "Telegram" [ref=e190] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e191]
+        - generic [ref=e193]:
+          - heading "Layanan" [level=4] [ref=e194]
+          - list [ref=e195]:
+            - listitem [ref=e196]:
+              - link "Beli Robux" [ref=e197] [cursor=pointer]:
+                - /url: /produk
+            - listitem [ref=e198]:
+              - link "Beli Gamepass" [ref=e199] [cursor=pointer]:
+                - /url: /beli-gamepass
+            - listitem [ref=e200]:
+              - link "Robux via Login" [ref=e201] [cursor=pointer]:
+                - /url: /beli-via-login
+            - listitem [ref=e202]:
+              - link "Cek Pesanan" [ref=e203] [cursor=pointer]:
+                - /url: /cek-pesanan
+            - listitem [ref=e204]:
+              - link "Leaderboard" [ref=e205] [cursor=pointer]:
+                - /url: /leaderboard
+        - generic [ref=e206]:
+          - heading "Bantuan" [level=4] [ref=e207]
+          - list [ref=e208]:
+            - listitem [ref=e209]:
+              - link "FAQ" [ref=e210] [cursor=pointer]:
+                - /url: /#bantuan
+            - listitem [ref=e211]:
+              - link "Hubungi Kami" [ref=e212] [cursor=pointer]:
+                - /url: /#bantuan
+            - listitem [ref=e213]:
+              - link "Cara Pembelian" [ref=e214] [cursor=pointer]:
+                - /url: /#bantuan
+        - generic [ref=e215]:
+          - heading "Informasi" [level=4] [ref=e216]
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - link "Tentang Kami" [ref=e219] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e220]:
+              - link "Kebijakan Privasi" [ref=e221] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e222]:
+              - link "Syarat & Ketentuan" [ref=e223] [cursor=pointer]:
+                - /url: "#"
+      - generic [ref=e224]:
+        - paragraph [ref=e225]: Robuxindo Store adalah platform independen dan tidak berafiliasi, tidak didukung, atau disponsori oleh Roblox Corporation. “Roblox” dan “Robux” adalah merek dagang dari Roblox Corporation.
+        - paragraph [ref=e226]: © 2025 Robuxindo Store. All rights reserved.

@@ -122,7 +122,7 @@ function ProductCard({ item, index }: { item: TrendingItem; index: number }) {
       transition={{ delay: index * 0.06, duration: 0.42, ease: "easeOut" }}
     >
       <Link
-        href="#produk"
+        href="/produk"
         className="group relative flex min-h-[84px] items-center gap-3.5 overflow-hidden rounded-2xl border border-rb-border bg-[linear-gradient(135deg,rgba(255,253,252,0.95),rgba(243,232,221,0.92))] px-3 py-3 shadow-[0_10px_22px_rgba(110,67,48,0.08)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_16px_28px_rgba(110,67,48,0.12)] sm:min-h-[88px]"
       >
         <div className="pointer-events-none absolute inset-0 opacity-90">
@@ -169,7 +169,7 @@ export default function Trending() {
 
         <div className="mt-7 flex justify-center sm:mt-8">
           <Link
-            href="#produk"
+            href="/produk"
             className="inline-flex items-center gap-2.5 rounded-xl border border-brand-300 bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white transition duration-300 hover:bg-brand-700"
           >
             Lihat Semua Produk

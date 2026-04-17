@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Crown, Gift, Sparkles } from "lucide-react";
-import mascotRobux1 from "../../../mascotrobux1.png";
 
 const topUpFeatures = [
   "Bobux 100% masuk",
@@ -19,7 +17,7 @@ const sideCards = [
     icon: Gift,
     accent: "bg-rb-peach/35",
     iconColor: "text-brand-700",
-    href: "#produk",
+    href: "/beli-gamepass",
   },
   {
     title: "Limited Items",
@@ -45,7 +43,7 @@ export default function LayananUtama() {
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center lg:mb-10">
-          <h2 className="font-heading text-[1.85rem] font-black tracking-tight text-brand-900 min-[430px]:text-[2rem] sm:text-[2.4rem] lg:text-[2.7rem]">
+          <h2 className="font-heading text-[1.85rem] font-black tracking-tight text-brand-900 xs:text-[2rem] sm:text-[2.4rem] lg:text-[2.7rem]">
             Pilih Layanan Yang Kamu Butuhkan
           </h2>
           <p className="mx-auto mt-2.5 max-w-xl text-sm font-medium text-rb-text2 sm:text-base">
@@ -66,13 +64,13 @@ export default function LayananUtama() {
             <div className="absolute bottom-[-28px] right-6 h-44 w-44 rounded-full bg-brand-100/65 blur-2xl" />
 
             <div className="relative z-10 flex h-full flex-col">
-              <div className="max-w-full min-[430px]:max-w-[16.5rem]">
+              <div className="max-w-full xs:max-w-[16.5rem]">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-300 bg-white/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-700">
                   <Sparkles className="h-3.5 w-3.5" />
                   Terlaris
                 </div>
 
-                <h3 className="font-heading text-[1.55rem] font-black leading-tight text-brand-900 min-[430px]:text-[1.7rem] sm:text-[1.95rem]">
+                <h3 className="font-heading text-[1.55rem] font-black leading-tight text-brand-900 xs:text-[1.7rem] sm:text-[1.95rem]">
                   Top Up Bobux
                 </h3>
 
@@ -92,20 +90,11 @@ export default function LayananUtama() {
 
                 <Link
                   href="#produk"
-                  className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-900 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-brand-700 min-[430px]:w-auto"
+                  className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-900 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-brand-700 xs:w-auto"
                 >
                   Beli Sekarang
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-              </div>
-
-              <div className="relative mt-8 min-h-[160px] min-[430px]:min-h-[200px] lg:mt-auto lg:min-h-[190px]">
-                <Image
-                  src={mascotRobux1}
-                  alt="Maskot Robuxindo"
-                  priority={false}
-                  className="absolute -bottom-4 right-0 z-10 h-auto w-[175px] object-contain drop-shadow-[0_20px_34px_rgba(110,67,48,0.18)] min-[430px]:w-[215px] sm:w-[250px]"
-                />
               </div>
             </div>
           </motion.div>

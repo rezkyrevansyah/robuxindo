@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, BadgeHelp, MessageCircle } from "lucide-react";
-import mascotRobux2 from "../../../mascotrobux2.png";
 import {
   Accordion,
   AccordionContent,
@@ -49,31 +47,31 @@ export default function FaqBantuan() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="overflow-hidden rounded-[28px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,253,252,0.98),rgba(243,232,221,0.92))] p-5 shadow-[0_20px_46px_rgba(110,67,48,0.1)] min-[430px]:rounded-[32px] min-[430px]:p-6"
+            className="overflow-hidden rounded-[28px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,253,252,0.98),rgba(243,232,221,0.92))] p-5 shadow-[0_20px_46px_rgba(110,67,48,0.1)] xs:rounded-[32px] xs:p-6"
           >
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-300 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
               <BadgeHelp className="h-3.5 w-3.5" />
               Bantuan & FAQ
             </div>
 
-            <h2 className="font-heading text-[1.95rem] font-black leading-[0.94] tracking-tight text-brand-900 min-[430px]:text-[2.3rem] sm:text-[2.9rem]">
+            <h2 className="font-heading text-[1.95rem] font-black leading-[0.94] tracking-tight text-brand-900 xs:text-[2.3rem] sm:text-[2.9rem]">
               Punya
               <br />
               <span className="text-brand-500">Pertanyaan?</span>
             </h2>
 
-            <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-rb-text2 min-[430px]:mt-6 min-[430px]:text-base min-[430px]:leading-8">
+            <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-rb-text2 xs:mt-6 xs:text-base xs:leading-8">
               Temukan jawaban cepat untuk pertanyaan yang paling sering ditanyakan
               seputar layanan, pengiriman, dan keamanan di Robuxindo.
             </p>
 
-            <div className="relative mt-8 overflow-hidden rounded-[24px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(242,226,214,0.72))] p-5 min-[430px]:mt-10 min-[430px]:rounded-[28px] min-[430px]:p-6">
+            <div className="relative mt-8 overflow-hidden rounded-[24px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,255,255,0.82),rgba(242,226,214,0.72))] p-5 xs:mt-10 xs:rounded-[28px] xs:p-6">
               <div className="pointer-events-none absolute -left-10 bottom-0 h-24 w-24 rounded-full bg-rb-peach/35 blur-2xl" />
               <div className="pointer-events-none absolute right-0 bottom-0 h-40 w-40 rounded-full bg-brand-100/70 blur-2xl" />
 
-              <div className="relative z-10 flex min-h-[200px] flex-col justify-between gap-6 min-[430px]:min-h-[220px] sm:min-h-[240px]">
+              <div className="relative z-10 flex min-h-[200px] flex-col justify-between gap-6 xs:min-h-[220px] sm:min-h-[240px]">
                 <div>
-                  <p className="text-[1.45rem] font-bold leading-tight text-brand-900 min-[430px]:text-[1.7rem]">
+                  <p className="text-[1.45rem] font-bold leading-tight text-brand-900 xs:text-[1.7rem]">
                     Masih bingung?
                   </p>
                   <p className="mt-2 max-w-[15rem] text-sm leading-6 text-rb-text2">
@@ -81,25 +79,16 @@ export default function FaqBantuan() {
                   </p>
                 </div>
 
-                <div className="flex flex-col items-start gap-5 min-[430px]:flex-row min-[430px]:items-end min-[430px]:justify-between">
+                <div className="flex flex-col items-start gap-5">
                   <a
                     href="https://wa.me/628xxx"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-900 px-5 py-3.5 text-sm font-semibold text-white transition duration-300 hover:bg-brand-700 min-[430px]:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-900 px-5 py-3.5 text-sm font-semibold text-white transition duration-300 hover:bg-brand-700 xs:w-auto"
                   >
                     Hubungi Kami
                     <ArrowRight className="h-4 w-4" />
                   </a>
-
-                  <div className="relative mx-auto h-[132px] w-[132px] min-[430px]:ml-auto min-[430px]:mr-0 min-[430px]:h-[148px] min-[430px]:w-[148px]">
-                    <Image
-                      src={mascotRobux2}
-                      alt="Maskot bantuan Robuxindo"
-                      priority={false}
-                      className="absolute bottom-0 right-0 z-10 h-auto w-[116px] object-contain drop-shadow-[0_16px_28px_rgba(110,67,48,0.18)] min-[430px]:w-[132px]"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -110,17 +99,17 @@ export default function FaqBantuan() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
-            className="rounded-[28px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,253,252,0.98),rgba(243,232,221,0.94))] p-5 shadow-[0_20px_46px_rgba(110,67,48,0.1)] min-[430px]:rounded-[32px] min-[430px]:p-6 lg:p-7"
+            className="rounded-[28px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,253,252,0.98),rgba(243,232,221,0.94))] p-5 shadow-[0_20px_46px_rgba(110,67,48,0.1)] xs:rounded-[32px] xs:p-6 lg:p-7"
           >
             <div className="mb-7">
               <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500">
                 <MessageCircle className="h-3.5 w-3.5" />
                 Pusat Bantuan
               </div>
-              <h3 className="font-heading text-[1.75rem] font-black leading-tight text-brand-900 min-[430px]:text-[2rem] sm:text-[2.4rem]">
+              <h3 className="font-heading text-[1.75rem] font-black leading-tight text-brand-900 xs:text-[2rem] sm:text-[2.4rem]">
                 Pertanyaan yang sering ditanyakan
               </h3>
-              <p className="mt-3 text-sm text-rb-text2 min-[430px]:text-base">
+              <p className="mt-3 text-sm text-rb-text2 xs:text-base">
                 Klik salah satu pertanyaan di bawah untuk melihat jawabannya.
               </p>
             </div>
@@ -130,12 +119,12 @@ export default function FaqBantuan() {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="overflow-hidden rounded-[20px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,255,255,0.78),rgba(242,226,214,0.52))] px-4 transition-all data-open:shadow-[0_12px_28px_rgba(110,67,48,0.08)] min-[430px]:rounded-[22px] min-[430px]:px-5"
+                  className="overflow-hidden rounded-[20px] border border-rb-border bg-[linear-gradient(145deg,rgba(255,255,255,0.78),rgba(242,226,214,0.52))] px-4 transition-all data-open:shadow-[0_12px_28px_rgba(110,67,48,0.08)] xs:rounded-[22px] xs:px-5"
                 >
-                  <AccordionTrigger className="py-4 text-left font-heading text-[0.96rem] font-bold text-brand-900 hover:no-underline min-[430px]:py-5 min-[430px]:text-[1.05rem]">
+                  <AccordionTrigger className="py-4 text-left font-heading text-[0.96rem] font-bold text-brand-900 hover:no-underline xs:py-5 xs:text-[1.05rem]">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm leading-7 text-rb-text2 min-[430px]:pb-5">
+                  <AccordionContent className="pb-4 text-sm leading-7 text-rb-text2 xs:pb-5">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

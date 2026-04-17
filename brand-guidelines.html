@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robuxindo Store — Brand & Design System Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      /* Brand / Primary */
+      --brand-900: #6E4330;
+      --brand-700: #875643;
+      --brand-500: #A8745A;
+      --brand-300: #D9B8A2;
+      --brand-100: #F2E2D6;
+      --brand-dark: #3F2D25;
+
+      /* Surfaces */
+      --rb-bg: #FAF6F1;
+      --rb-surface: #FFFDFC;
+      --rb-alt: #F3E8DD;
+      --rb-border: #E8D8C8;
+
+      /* Text */
+      --rb-text: #3F2D25;
+      --rb-text2: #8C7A6B;
+
+      /* Accents */
+      --rb-orange: #F2A65A;
+      --rb-peach: #F6C28B;
+      --rb-green: #72C29A;
+      --rb-green-soft: #E7F7EE;
+      --rb-amber: #F4B740;
+
+      /* Destructive */
+      --rb-red: #E05252;
+      --rb-red-soft: #FEF2F2;
+
+      /* Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-2xl: 24px;
+      --radius-full: 9999px;
+
+      /* Shadow */
+      --shadow-xs: 0 1px 3px 0 rgba(63,45,37,.06), 0 1px 2px -1px rgba(63,45,37,.04);
+      --shadow-sm: 0 2px 8px 0 rgba(63,45,37,.08), 0 1px 3px -1px rgba(63,45,37,.06);
+      --shadow-md: 0 4px 16px 0 rgba(63,45,37,.10), 0 2px 6px -2px rgba(63,45,37,.06);
+      --shadow-lg: 0 8px 32px 0 rgba(63,45,37,.12), 0 4px 12px -4px rgba(63,45,37,.08);
+
+      /* Typography */
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', 'Poppins', sans-serif;
+
+      /* Spacing (4-pt grid) */
+      --sp-1: 4px;
+      --sp-2: 8px;
+      --sp-3: 12px;
+      --sp-4: 16px;
+      --sp-5: 20px;
+      --sp-6: 24px;
+      --sp-8: 32px;
+      --sp-10: 40px;
+      --sp-12: 48px;
+      --sp-16: 64px;
+      --sp-20: 80px;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--rb-bg);
+      color: var(--rb-text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    a { color: var(--brand-700); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: 'SF Mono', 'Consolas', monospace;
+      font-size: 0.82em;
+      background: var(--rb-alt);
+      border: 1px solid var(--rb-border);
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: var(--brand-900);
+    }
+
+    /* ─────────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────────── */
+    .page-wrapper {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar nav */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--rb-surface);
+      border-right: 1px solid var(--rb-border);
+      padding: var(--sp-6);
+    }
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-8);
+    }
+    .sidebar-logo .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-md);
+      background: var(--brand-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+    }
+    .sidebar-logo .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--brand-900);
+      line-height: 1.2;
+    }
+    .sidebar-logo .brand-sub {
+      font-size: 10px;
+      color: var(--rb-text2);
+      font-weight: 500;
+    }
+    .nav-group { margin-bottom: var(--sp-6); }
+    .nav-group-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--rb-text2);
+      margin-bottom: var(--sp-2);
+    }
+    .nav-link {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--rb-text2);
+      padding: 5px var(--sp-2);
+      border-radius: var(--radius-sm);
+      transition: background .15s, color .15s;
+    }
+    .nav-link:hover {
+      background: var(--rb-alt);
+      color: var(--rb-text);
+      text-decoration: none;
+    }
+    .nav-link.active {
+      background: var(--brand-100);
+      color: var(--brand-900);
+      font-weight: 600;
+    }
+
+    /* Main content */
+    main {
+      padding: var(--sp-12) var(--sp-16);
+      max-width: 960px;
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION HEADINGS
+    ───────────────────────────────────────────── */
+    .section { margin-bottom: var(--sp-20); }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+      padding-bottom: var(--sp-4);
+      border-bottom: 2px solid var(--rb-border);
+    }
+    .section-number {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-500);
+      background: var(--brand-100);
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      letter-spacing: .04em;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--brand-dark);
+    }
+    .section-desc {
+      color: var(--rb-text2);
+      margin-bottom: var(--sp-6);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    h3.sub-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--rb-text);
+      margin-bottom: var(--sp-3);
+      margin-top: var(--sp-6);
+    }
+
+    /* ─────────────────────────────────────────────
+       HERO BANNER
+    ───────────────────────────────────────────── */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-700) 60%, var(--brand-500) 100%);
+      border-radius: var(--radius-2xl);
+      padding: var(--sp-12) var(--sp-12);
+      margin-bottom: var(--sp-16);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(242,166,90,.18) 0%, transparent 60%);
+    }
+    .hero-banner .pill {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 14px;
+      margin-bottom: var(--sp-4);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .hero-banner h1 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: var(--sp-3);
+      letter-spacing: -0.5px;
+    }
+    .hero-banner h1 span { color: var(--rb-peach); }
+    .hero-banner p {
+      font-size: 15px;
+      opacity: .8;
+      max-width: 520px;
+    }
+    .hero-banner .version-tag {
+      position: absolute;
+      top: var(--sp-5);
+      right: var(--sp-6);
+      font-size: 11px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--radius-full);
+      padding: 4px 12px;
+    }
+
+    /* ─────────────────────────────────────────────
+       COLOR SWATCHES
+    ───────────────────────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .swatch {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--rb-border);
+      box-shadow: var(--shadow-xs);
+    }
+    .swatch-color {
+      height: 72px;
+      width: 100%;
+    }
+    .swatch-info {
+      background: var(--rb-surface);
+      padding: var(--sp-3);
+    }
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--rb-text);
+    }
+    .swatch-token {
+      font-size: 10px;
+      color: var(--rb-text2);
+      margin-top: 2px;
+    }
+    .swatch-hex {
+      font-family: 'SF Mono', monospace;
+      font-size: 11px;
+      color: var(--brand-500);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Palette row */
+    .palette-row {
+      display: flex;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--rb-border);
+      margin-bottom: var(--sp-3);
+    }
+    .palette-chip {
+      flex: 1;
+      height: 56px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 4px 8px;
+    }
+    .palette-chip span {
+      font-size: 9px;
+      font-weight: 700;
+      opacity: .7;
+    }
+    .palette-chip-light span { color: #3F2D25; }
+    .palette-chip-dark span { color: rgba(255,255,255,.85); }
+
+    /* ─────────────────────────────────────────────
+       TYPOGRAPHY SHOWCASE
+    ───────────────────────────────────────────── */
+    .type-sample {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      margin-bottom: var(--sp-4);
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-6);
+    }
+    .type-sample .type-preview {
+      flex: 1;
+      font-family: var(--font-heading);
+      color: var(--rb-text);
+    }
+    .type-sample .type-meta {
+      min-width: 160px;
+      text-align: right;
+    }
+    .type-meta .type-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-500);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .type-meta .type-specs {
+      font-size: 11px;
+      color: var(--rb-text2);
+      line-height: 1.6;
+      margin-top: 2px;
+    }
+    .type-meta code { font-size: 10px; }
+
+    .font-card {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      margin-bottom: var(--sp-4);
+    }
+    .font-card .font-name {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--brand-500);
+      margin-bottom: var(--sp-3);
+    }
+    .font-card .font-display {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--rb-text);
+      line-height: 1.2;
+      margin-bottom: var(--sp-2);
+    }
+    .font-card .font-weights {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+    .font-weight-item {
+      font-size: 13px;
+      color: var(--rb-text2);
+    }
+
+    /* ─────────────────────────────────────────────
+       SPACING SCALE
+    ───────────────────────────────────────────── */
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: var(--sp-3) 0;
+      border-bottom: 1px solid var(--rb-border);
+    }
+    .spacing-row:last-child { border-bottom: none; }
+    .spacing-bar-wrap { width: 200px; }
+    .spacing-bar {
+      height: 20px;
+      background: var(--brand-300);
+      border-radius: 4px;
+    }
+    .spacing-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--rb-text);
+      min-width: 60px;
+    }
+    .spacing-token {
+      font-size: 12px;
+      color: var(--rb-text2);
+      min-width: 80px;
+    }
+    .spacing-px {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--brand-500);
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────────────
+       RADIUS SCALE
+    ───────────────────────────────────────────── */
+    .radius-grid {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+    .radius-card {
+      background: var(--rb-surface);
+      border: 2px solid var(--rb-border);
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      min-width: 100px;
+    }
+    .radius-box {
+      width: 60px;
+      height: 60px;
+      background: var(--brand-300);
+      border: 2px solid var(--brand-500);
+    }
+    .radius-name { font-size: 12px; font-weight: 600; color: var(--rb-text); }
+    .radius-px { font-size: 11px; color: var(--brand-500); font-family: monospace; font-weight: 600; }
+    .radius-token { font-size: 10px; color: var(--rb-text2); }
+
+    /* ─────────────────────────────────────────────
+       SHADOW SCALE
+    ───────────────────────────────────────────── */
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--sp-6);
+      padding: var(--sp-4);
+    }
+    .shadow-card {
+      background: var(--rb-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .shadow-label { font-size: 12px; font-weight: 600; color: var(--rb-text); }
+    .shadow-token { font-size: 10px; color: var(--rb-text2); }
+    .shadow-use { font-size: 11px; color: var(--brand-500); font-style: italic; }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT DEMOS
+    ───────────────────────────────────────────── */
+    .demo-box {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      margin-bottom: var(--sp-6);
+    }
+    .demo-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--rb-text2);
+      margin-bottom: var(--sp-4);
+    }
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-4);
+    }
+    .demo-row:last-child { margin-bottom: 0; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: none;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--brand-900);
+      color: #fff;
+      padding: 10px 22px;
+    }
+    .btn-primary:hover { background: var(--brand-700); }
+    .btn-secondary {
+      background: var(--rb-alt);
+      color: var(--rb-text);
+      padding: 10px 22px;
+      border: 1px solid var(--rb-border);
+    }
+    .btn-secondary:hover { background: var(--brand-100); }
+    .btn-accent {
+      background: var(--rb-orange);
+      color: #fff;
+      padding: 10px 22px;
+    }
+    .btn-accent:hover { filter: brightness(0.95); }
+    .btn-outline {
+      background: transparent;
+      color: var(--brand-900);
+      padding: 9px 20px;
+      border: 2px solid var(--brand-300);
+    }
+    .btn-outline:hover { border-color: var(--brand-700); background: var(--brand-100); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--rb-text2);
+      padding: 9px 16px;
+    }
+    .btn-ghost:hover { background: var(--rb-alt); color: var(--rb-text); }
+    .btn-danger {
+      background: #FEF2F2;
+      color: var(--rb-red);
+      padding: 10px 22px;
+    }
+    .btn-danger:hover { background: #FEE2E2; }
+    .btn-sm { padding: 7px 16px; font-size: 12px; }
+    .btn-lg { padding: 14px 28px; font-size: 16px; border-radius: var(--radius-lg); }
+    .btn-disabled { opacity: .45; pointer-events: none; }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      letter-spacing: .02em;
+    }
+    .badge-primary { background: var(--brand-900); color: #fff; }
+    .badge-secondary { background: var(--rb-alt); color: var(--rb-text); border: 1px solid var(--rb-border); }
+    .badge-orange { background: #FEF0E3; color: #B45309; border: 1px solid #FDE0BC; }
+    .badge-green { background: var(--rb-green-soft); color: #15803D; border: 1px solid #D1FAE5; }
+    .badge-amber { background: #FFFBEB; color: #92400E; border: 1px solid #FEF3C7; }
+    .badge-red { background: var(--rb-red-soft); color: var(--rb-red); border: 1px solid #FECACA; }
+    .badge-outline { background: transparent; color: var(--rb-text2); border: 1px solid var(--rb-border); }
+    .badge-dot::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* Inputs */
+    .input-group { display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--rb-text); }
+    .input-hint { font-size: 12px; color: var(--rb-text2); }
+    .inp {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--rb-text);
+      background: var(--rb-surface);
+      border: 1.5px solid var(--rb-border);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .inp::placeholder { color: var(--rb-text2); }
+    .inp:focus { border-color: var(--brand-500); box-shadow: 0 0 0 3px rgba(168,116,90,.15); }
+    .inp-error { border-color: var(--rb-red); }
+    .inp-error:focus { box-shadow: 0 0 0 3px rgba(224,82,82,.15); }
+    .input-error-msg { font-size: 12px; color: var(--rb-red); font-weight: 500; }
+
+    /* Cards */
+    .card-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .demo-card {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-5);
+      box-shadow: var(--shadow-sm);
+    }
+    .demo-card .card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-lg);
+      background: var(--brand-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: var(--sp-3);
+    }
+    .demo-card .card-title {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--rb-text);
+      margin-bottom: 4px;
+    }
+    .demo-card .card-desc {
+      font-size: 13px;
+      color: var(--rb-text2);
+      line-height: 1.55;
+      margin-bottom: var(--sp-4);
+    }
+
+    /* Stats cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .stat-card {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-5);
+      box-shadow: var(--shadow-xs);
+    }
+    .stat-card .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--rb-text2);
+      margin-bottom: var(--sp-1);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .stat-card .stat-value {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      line-height: 1;
+    }
+    .stat-card .stat-change {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: var(--sp-1);
+    }
+    .stat-change.up { color: #15803D; }
+    .stat-change.neutral { color: var(--rb-text2); }
+
+    /* Alert / toast samples */
+    .alert {
+      display: flex;
+      gap: var(--sp-3);
+      padding: var(--sp-4);
+      border-radius: var(--radius-lg);
+      font-size: 13px;
+      margin-bottom: var(--sp-3);
+      border: 1px solid;
+    }
+    .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .alert-content .alert-title { font-weight: 700; margin-bottom: 2px; font-size: 13px; }
+    .alert-content p { color: inherit; opacity: .85; }
+    .alert-success { background: var(--rb-green-soft); border-color: #A7F3D0; color: #065F46; }
+    .alert-warning { background: #FFFBEB; border-color: #FEF3C7; color: #78350F; }
+    .alert-error { background: var(--rb-red-soft); border-color: #FECACA; color: #991B1B; }
+    .alert-info { background: var(--brand-100); border-color: var(--brand-300); color: var(--brand-900); }
+
+    /* ─────────────────────────────────────────────
+       TOKEN TABLE
+    ───────────────────────────────────────────── */
+    table.token-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: var(--sp-6);
+    }
+    .token-table thead th {
+      text-align: left;
+      padding: var(--sp-2) var(--sp-4);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--rb-text2);
+      border-bottom: 2px solid var(--rb-border);
+    }
+    .token-table tbody td {
+      padding: var(--sp-3) var(--sp-4);
+      border-bottom: 1px solid var(--rb-border);
+      vertical-align: middle;
+    }
+    .token-table tbody tr:last-child td { border-bottom: none; }
+    .token-table .dot {
+      display: inline-block;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--rb-border);
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ─────────────────────────────────────────────
+       DO / DON'T
+    ───────────────────────────────────────────── */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .do-card, .dont-card {
+      border-radius: var(--radius-xl);
+      padding: var(--sp-5);
+    }
+    .do-card {
+      background: var(--rb-green-soft);
+      border: 1.5px solid #A7F3D0;
+    }
+    .dont-card {
+      background: var(--rb-red-soft);
+      border: 1.5px solid #FECACA;
+    }
+    .do-card .card-header, .dont-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: var(--sp-3);
+    }
+    .do-card .card-header { color: #065F46; }
+    .dont-card .card-header { color: #991B1B; }
+    .do-card ul, .dont-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .do-card li, .dont-card li {
+      font-size: 13px;
+      padding: 4px 0;
+      display: flex;
+      gap: var(--sp-2);
+    }
+    .do-card li { color: #065F46; }
+    .dont-card li { color: #991B1B; }
+
+    /* ─────────────────────────────────────────────
+       ICON SAMPLES
+    ───────────────────────────────────────────── */
+    .icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+    }
+    .icon-item {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      min-width: 72px;
+    }
+    .icon-item .icon { font-size: 22px; }
+    .icon-item .icon-name { font-size: 10px; color: var(--rb-text2); font-family: monospace; }
+
+    /* ─────────────────────────────────────────────
+       VOICE & TONE TAGS
+    ───────────────────────────────────────────── */
+    .tone-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--brand-100);
+      color: var(--brand-900);
+      border-radius: var(--radius-full);
+      padding: 5px 14px;
+      border: 1px solid var(--brand-300);
+      margin: 4px;
+    }
+
+    /* Copy example */
+    .copy-example {
+      background: var(--rb-surface);
+      border: 1px solid var(--rb-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      margin-bottom: var(--sp-3);
+    }
+    .copy-example .label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--rb-text2);
+      margin-bottom: var(--sp-2);
+    }
+    .copy-example .ex-good { color: #065F46; font-size: 14px; font-weight: 600; }
+    .copy-example .ex-bad { color: var(--rb-red); font-size: 14px; font-weight: 600; text-decoration: line-through; }
+    .copy-example p { font-size: 13px; color: var(--rb-text2); margin-top: 4px; }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .page-wrapper { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      main { padding: var(--sp-8) var(--sp-6); }
+      .do-dont-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─────────────────────────────────────────────
+       PRINT OVERRIDES
+    ───────────────────────────────────────────── */
+    @media print {
+      .sidebar { display: none; }
+      .page-wrapper { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ── Sidebar ── -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">R</div>
+      <div>
+        <div class="brand-name">Robuxindo Store</div>
+        <div class="brand-sub">Design System v1.0</div>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">Overview</div>
+      <a class="nav-link" href="#brand">Brand Identity</a>
+      <a class="nav-link" href="#voice">Voice & Tone</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Foundations</div>
+      <a class="nav-link" href="#colors">Color System</a>
+      <a class="nav-link" href="#typography">Typography</a>
+      <a class="nav-link" href="#spacing">Spacing</a>
+      <a class="nav-link" href="#radius">Border Radius</a>
+      <a class="nav-link" href="#shadows">Shadows</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Components</div>
+      <a class="nav-link" href="#buttons">Buttons</a>
+      <a class="nav-link" href="#badges">Badges</a>
+      <a class="nav-link" href="#inputs">Inputs</a>
+      <a class="nav-link" href="#cards">Cards</a>
+      <a class="nav-link" href="#alerts">Alerts</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Reference</div>
+      <a class="nav-link" href="#tokens">CSS Tokens</a>
+      <a class="nav-link" href="#dodont">Do's & Don'ts</a>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <main>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="version-tag">v1.0 · April 2026</div>
+      <div class="pill">Design System</div>
+      <h1>Robuxindo Store<br><span>Brand Guidelines</span></h1>
+      <p>A living reference for designers and developers. Everything needed to build consistent, on-brand experiences for Robuxindo Store.</p>
+    </div>
+
+    <!-- ─── 01 BRAND IDENTITY ─── -->
+    <section class="section" id="brand">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Brand Identity</h2>
+      </div>
+      <p class="section-desc">Robuxindo Store is Indonesia's trusted Roblox top-up destination. The brand balances <strong>gamer-friendly energy</strong> with <strong>trustworthy professionalism</strong> — warm, modern, clean, and approachable. Never cold. Never corporate. Never neon-heavy.</p>
+
+      <h3 class="sub-title">Brand Personality</h3>
+      <div class="demo-box">
+        <div class="demo-row">
+          <span class="tone-tag">🚀 Fast</span>
+          <span class="tone-tag">🛡️ Trusted</span>
+          <span class="tone-tag">🎮 Gamer-Friendly</span>
+          <span class="tone-tag">✨ Modern</span>
+          <span class="tone-tag">😊 Playful</span>
+          <span class="tone-tag">💎 Premium-Casual</span>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Logo Usage</h3>
+      <div class="demo-box">
+        <div class="demo-row" style="gap: var(--sp-8);">
+          <div style="text-align:center">
+            <div style="background: var(--rb-surface); border:1px solid var(--rb-border); border-radius:var(--radius-lg); padding:var(--sp-5); margin-bottom:var(--sp-2); display:inline-block;">
+              <img src="logo_robuxindo.png" alt="Robuxindo Store Logo" style="height:48px; display:block;" onerror="this.style.display='none'; this.nextSibling.style.display='flex'" />
+              <div style="display:none; width:160px; height:48px; background:var(--brand-100); border-radius:8px; align-items:center; justify-content:center; font-family:var(--font-heading); font-weight:800; color:var(--brand-900); font-size:14px;">ROBUXINDO STORE</div>
+            </div>
+            <div style="font-size:12px; color:var(--rb-text2);">Light background</div>
+          </div>
+          <div style="text-align:center">
+            <div style="background: var(--brand-900); border-radius:var(--radius-lg); padding:var(--sp-5); margin-bottom:var(--sp-2); display:inline-block;">
+              <img src="logo_robuxindo.png" alt="Robuxindo Store Logo" style="height:48px; display:block; filter:brightness(10);" onerror="this.style.display='none'; this.nextSibling.style.display='flex'" />
+              <div style="display:none; width:160px; height:48px; align-items:center; justify-content:center; font-family:var(--font-heading); font-weight:800; color:#fff; font-size:14px;">ROBUXINDO STORE</div>
+            </div>
+            <div style="font-size:12px; color:var(--rb-text2);">Dark background</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--sp-4); padding-top:var(--sp-4); border-top:1px solid var(--rb-border);">
+          <div style="font-size:13px; color:var(--rb-text2); line-height:1.8;">
+            <strong style="color:var(--rb-text);">Clear space:</strong> Always maintain at least 1× the logo height as clear space on all sides.<br>
+            <strong style="color:var(--rb-text);">Minimum size:</strong> Never render the logo smaller than 24px height.<br>
+            <strong style="color:var(--rb-text);">Don't:</strong> Stretch, rotate, recolor, or add effects to the logo. Use provided asset files only.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 02 VOICE & TONE ─── -->
+    <section class="section" id="voice">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Voice & Tone</h2>
+      </div>
+      <p class="section-desc">Robuxindo speaks like a trusted gamer friend — not a stiff corporation. Casual but credible. Energetic but not chaotic. Always honest, always helpful.</p>
+
+      <h3 class="sub-title">Writing Principles</h3>
+      <div class="do-dont-grid">
+        <div class="do-card">
+          <div class="card-header"><span>✅</span> Do</div>
+          <ul>
+            <li><span>→</span> Use informal but professional Indonesian</li>
+            <li><span>→</span> Be direct and concise</li>
+            <li><span>→</span> Highlight speed, safety, and value</li>
+            <li><span>→</span> Use active voice</li>
+            <li><span>→</span> Speak to gamers as peers</li>
+            <li><span>→</span> Keep sentences short</li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <div class="card-header"><span>❌</span> Don't</div>
+          <ul>
+            <li><span>→</span> Sound overly formal or corporate</li>
+            <li><span>→</span> Use unnecessary jargon</li>
+            <li><span>→</span> Make promises you can't keep</li>
+            <li><span>→</span> Use ALL CAPS for emphasis</li>
+            <li><span>→</span> Write walls of text</li>
+            <li><span>→</span> Sound desperate or pushy</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Copy Examples</h3>
+      <div class="copy-example">
+        <div class="label">CTA Button</div>
+        <div class="ex-good">✅ "Beli Sekarang" / "Top Up Robux" / "Mulai Sekarang"</div>
+        <div class="ex-bad">❌ "Klik Di Sini Untuk Melakukan Pembelian Produk"</div>
+        <p>Keep CTAs short, action-oriented, and energetic.</p>
+      </div>
+      <div class="copy-example">
+        <div class="label">Error Message</div>
+        <div class="ex-good">✅ "Oops! Transaksi gagal. Coba lagi ya."</div>
+        <div class="ex-bad">❌ "ERROR: Transaction processing failed. Please try again."</div>
+        <p>Be human, empathetic, and guide users to a solution.</p>
+      </div>
+      <div class="copy-example">
+        <div class="label">Empty State</div>
+        <div class="ex-good">✅ "Belum ada pesanan. Yuk beli Robux pertamamu!"</div>
+        <div class="ex-bad">❌ "No records found."</div>
+        <p>Turn empty states into opportunities to guide and delight.</p>
+      </div>
+    </section>
+
+    <!-- ─── 03 COLORS ─── -->
+    <section class="section" id="colors">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Color System</h2>
+      </div>
+      <p class="section-desc">The palette is built on warm browns, creams, and soft neutrals reflecting the Robuxindo brand. Accents in orange, peach, green, and amber provide energy and semantic meaning without resorting to harsh neons or cold blues.</p>
+
+      <h3 class="sub-title">Brand Primary — Warm Brown</h3>
+      <div class="palette-row">
+        <div class="palette-chip palette-chip-dark" style="background:#3F2D25"><span>Dark</span></div>
+        <div class="palette-chip palette-chip-dark" style="background:#6E4330"><span>900</span></div>
+        <div class="palette-chip palette-chip-dark" style="background:#875643"><span>700</span></div>
+        <div class="palette-chip palette-chip-dark" style="background:#A8745A"><span>500</span></div>
+        <div class="palette-chip palette-chip-light" style="background:#D9B8A2"><span>300</span></div>
+        <div class="palette-chip palette-chip-light" style="background:#F2E2D6"><span>100</span></div>
+      </div>
+
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#3F2D25"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Dark</div>
+            <div class="swatch-token"><code>--brand-dark</code></div>
+            <div class="swatch-hex">#3F2D25</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#6E4330"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand 900</div>
+            <div class="swatch-token"><code>--brand-900</code></div>
+            <div class="swatch-hex">#6E4330</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#875643"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand 700</div>
+            <div class="swatch-token"><code>--brand-700</code></div>
+            <div class="swatch-hex">#875643</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#A8745A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand 500</div>
+            <div class="swatch-token"><code>--brand-500</code></div>
+            <div class="swatch-hex">#A8745A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#D9B8A2; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand 300</div>
+            <div class="swatch-token"><code>--brand-300</code></div>
+            <div class="swatch-hex">#D9B8A2</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F2E2D6; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand 100</div>
+            <div class="swatch-token"><code>--brand-100</code></div>
+            <div class="swatch-hex">#F2E2D6</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Surfaces & Backgrounds</h3>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FAF6F1; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Page Background</div>
+            <div class="swatch-token"><code>--rb-bg</code></div>
+            <div class="swatch-hex">#FAF6F1</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFDFC; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Card Surface</div>
+            <div class="swatch-token"><code>--rb-surface</code></div>
+            <div class="swatch-hex">#FFFDFC</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F3E8DD; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Alt Section</div>
+            <div class="swatch-token"><code>--rb-alt</code></div>
+            <div class="swatch-hex">#F3E8DD</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8D8C8; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Border</div>
+            <div class="swatch-token"><code>--rb-border</code></div>
+            <div class="swatch-hex">#E8D8C8</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Text Colors</h3>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#3F2D25"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Text Primary</div>
+            <div class="swatch-token"><code>--rb-text</code></div>
+            <div class="swatch-hex">#3F2D25</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#8C7A6B"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Text Secondary</div>
+            <div class="swatch-token"><code>--rb-text2</code></div>
+            <div class="swatch-hex">#8C7A6B</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Accent Colors</h3>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F2A65A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Orange</div>
+            <div class="swatch-token"><code>--rb-orange</code></div>
+            <div class="swatch-hex">#F2A65A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F6C28B; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Peach</div>
+            <div class="swatch-token"><code>--rb-peach</code></div>
+            <div class="swatch-hex">#F6C28B</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#72C29A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Green (Success)</div>
+            <div class="swatch-token"><code>--rb-green</code></div>
+            <div class="swatch-hex">#72C29A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E7F7EE; border-bottom:1px solid var(--rb-border)"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Green Soft</div>
+            <div class="swatch-token"><code>--rb-green-soft</code></div>
+            <div class="swatch-hex">#E7F7EE</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F4B740"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Amber (Warning)</div>
+            <div class="swatch-token"><code>--rb-amber</code></div>
+            <div class="swatch-hex">#F4B740</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E05252"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Red (Error)</div>
+            <div class="swatch-token"><code>--rb-red</code></div>
+            <div class="swatch-hex">#E05252</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Semantic Usage Guide</h3>
+      <table class="token-table">
+        <thead>
+          <tr>
+            <th>Color</th>
+            <th>Token</th>
+            <th>When to Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="dot" style="background:#6E4330"></span>Brand 900</td>
+            <td><code>--brand-900</code></td>
+            <td>Primary CTA buttons, headings, logo, key UI elements</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#875643"></span>Brand 700</td>
+            <td><code>--brand-700</code></td>
+            <td>Hover states, links, secondary headings</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#A8745A"></span>Brand 500</td>
+            <td><code>--brand-500</code></td>
+            <td>Focus rings, icons, subheadings, accents</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#F2A65A"></span>Orange</td>
+            <td><code>--rb-orange</code></td>
+            <td>Promo badges, sale highlights, secondary CTAs, energy accents</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#F4B740"></span>Amber</td>
+            <td><code>--rb-amber</code></td>
+            <td>Warning states, "pending" status, attention banners</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#72C29A"></span>Green</td>
+            <td><code>--rb-green</code></td>
+            <td>Success states, verified badges, "aman" / "sukses" indicators</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#E05252"></span>Red</td>
+            <td><code>--rb-red</code></td>
+            <td>Error states, destructive actions, validation failures</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#FAF6F1; border:1px solid #E8D8C8"></span>Background</td>
+            <td><code>--rb-bg</code></td>
+            <td>Page-level background, main canvas</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#FFFDFC; border:1px solid #E8D8C8"></span>Surface</td>
+            <td><code>--rb-surface</code></td>
+            <td>Cards, modals, popovers, panels</td>
+          </tr>
+          <tr>
+            <td><span class="dot" style="background:#F3E8DD; border:1px solid #E8D8C8"></span>Alt</td>
+            <td><code>--rb-alt</code></td>
+            <td>Alternate section backgrounds, muted containers</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 04 TYPOGRAPHY ─── -->
+    <section class="section" id="typography">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Typography</h2>
+      </div>
+      <p class="section-desc">Typography uses <strong>Poppins</strong> for headings and display text, and <strong>Inter</strong> for body copy. Both are modern, highly legible, and feel approachable — perfectly aligned with the brand's friendly-professional character.</p>
+
+      <h3 class="sub-title">Typefaces</h3>
+      <div class="font-card">
+        <div class="font-name">Poppins — Heading / Display</div>
+        <div class="font-display" style="font-family:'Poppins',sans-serif;">Robux Cepat &amp; Aman</div>
+        <div style="font-size:13px; color:var(--rb-text2); margin-bottom:var(--sp-3);">Primary typeface for all headings, hero text, display text, and UI labels that need strong visual hierarchy.</div>
+        <div class="font-weights">
+          <span class="font-weight-item" style="font-family:'Poppins'; font-weight:400;">Regular 400</span>
+          <span class="font-weight-item" style="font-family:'Poppins'; font-weight:500;">Medium 500</span>
+          <span class="font-weight-item" style="font-family:'Poppins'; font-weight:600;">SemiBold 600</span>
+          <span class="font-weight-item" style="font-family:'Poppins'; font-weight:700;">Bold 700</span>
+          <span class="font-weight-item" style="font-family:'Poppins'; font-weight:800;">ExtraBold 800</span>
+        </div>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Inter — Body / UI</div>
+        <div class="font-display" style="font-family:'Inter',sans-serif; font-size:26px;">Top up Robux instan untuk akun Roblox kamu.</div>
+        <div style="font-size:13px; color:var(--rb-text2); margin-bottom:var(--sp-3);">Secondary typeface for body text, captions, labels, and all long-form reading content.</div>
+        <div class="font-weights">
+          <span class="font-weight-item" style="font-family:'Inter'; font-weight:400;">Regular 400</span>
+          <span class="font-weight-item" style="font-family:'Inter'; font-weight:500;">Medium 500</span>
+          <span class="font-weight-item" style="font-family:'Inter'; font-weight:600;">SemiBold 600</span>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Type Scale</h3>
+      <div class="type-sample">
+        <div class="type-preview" style="font-size:48px; font-weight:800; line-height:1.1; letter-spacing:-1px;">Hero Heading</div>
+        <div class="type-meta">
+          <div class="type-label">Display / H1</div>
+          <div class="type-specs">
+            Font: Poppins 800<br>
+            Size: 48px / 3rem<br>
+            Line-height: 1.1<br>
+            Tracking: −1px<br>
+            <code>text-5xl font-extrabold</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-preview" style="font-size:36px; font-weight:700; line-height:1.2; letter-spacing:-0.5px;">Section Heading</div>
+        <div class="type-meta">
+          <div class="type-label">H2</div>
+          <div class="type-specs">
+            Font: Poppins 700<br>
+            Size: 36px / 2.25rem<br>
+            Line-height: 1.2<br>
+            Tracking: −0.5px<br>
+            <code>text-4xl font-bold</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-preview" style="font-size:24px; font-weight:700; line-height:1.3;">Card Heading</div>
+        <div class="type-meta">
+          <div class="type-label">H3</div>
+          <div class="type-specs">
+            Font: Poppins 700<br>
+            Size: 24px / 1.5rem<br>
+            Line-height: 1.3<br>
+            <code>text-2xl font-bold</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-preview" style="font-size:18px; font-weight:600; line-height:1.4;">Subsection / Label</div>
+        <div class="type-meta">
+          <div class="type-label">H4</div>
+          <div class="type-specs">
+            Font: Poppins 600<br>
+            Size: 18px / 1.125rem<br>
+            Line-height: 1.4<br>
+            <code>text-lg font-semibold</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-preview" style="font-family:'Inter',sans-serif; font-size:16px; font-weight:400; line-height:1.65; max-width:400px;">Beli Robux dengan mudah, aman, dan cepat. Dikirim dalam hitungan menit langsung ke akun Roblox kamu.</div>
+        <div class="type-meta">
+          <div class="type-label">Body Large</div>
+          <div class="type-specs">
+            Font: Inter 400<br>
+            Size: 16px / 1rem<br>
+            Line-height: 1.65<br>
+            <code>text-base</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="type-preview" style="font-family:'Inter',sans-serif; font-size:14px; font-weight:400; line-height:1.6; max-width:380px; color:var(--rb-text2);">Metode pembayaran yang tersedia: transfer bank, e-wallet, dan QRIS. Semua transaksi terenkripsi.</div>
+        <div class="type-meta">
+          <div class="type-label">Body / Caption</div>
+          <div class="type-specs">
+            Font: Inter 400<br>
+            Size: 14px / 0.875rem<br>
+            Line-height: 1.6<br>
+            Color: text2<br>
+            <code>text-sm text-muted</code>
+          </div>
+        </div>
+      </div>
+      <div class="type-sample" style="align-items:center;">
+        <div class="type-preview" style="font-family:'Inter',sans-serif; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rb-text2);">OVERLINE / SECTION TAG</div>
+        <div class="type-meta">
+          <div class="type-label">Overline</div>
+          <div class="type-specs">
+            Font: Inter 700<br>
+            Size: 12px<br>
+            Letter-spacing: .08em<br>
+            Uppercase<br>
+            <code>text-xs font-bold tracking-wide uppercase</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 05 SPACING ─── -->
+    <section class="section" id="spacing">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Spacing System</h2>
+      </div>
+      <p class="section-desc">All spacing is based on a <strong>4px grid</strong>. Use multiples of 4 for all margins, paddings, and gaps. This ensures visual rhythm and alignment consistency across all components.</p>
+
+      <div class="demo-box">
+        <div class="spacing-row">
+          <div class="spacing-label">sp-1</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px"></div></div>
+          <div class="spacing-token"><code>--sp-1</code></div>
+          <div class="spacing-px">4px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Icon gap, tiny nudge</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-2</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px"></div></div>
+          <div class="spacing-token"><code>--sp-2</code></div>
+          <div class="spacing-px">8px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Inline elements, tight groups</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-3</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px"></div></div>
+          <div class="spacing-token"><code>--sp-3</code></div>
+          <div class="spacing-px">12px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Compact padding, badges</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-4</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px"></div></div>
+          <div class="spacing-token"><code>--sp-4</code></div>
+          <div class="spacing-px">16px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Default component padding, grid gap</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-5</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:20px"></div></div>
+          <div class="spacing-token"><code>--sp-5</code></div>
+          <div class="spacing-px">20px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Card padding (compact)</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-6</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px"></div></div>
+          <div class="spacing-token"><code>--sp-6</code></div>
+          <div class="spacing-px">24px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Card padding (standard), section sub-gaps</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-8</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px"></div></div>
+          <div class="spacing-token"><code>--sp-8</code></div>
+          <div class="spacing-px">32px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Intra-section spacing</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-10</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:40px"></div></div>
+          <div class="spacing-token"><code>--sp-10</code></div>
+          <div class="spacing-px">40px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Section padding (vertical)</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-12</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px"></div></div>
+          <div class="spacing-token"><code>--sp-12</code></div>
+          <div class="spacing-px">48px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Hero padding, large containers</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-16</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px"></div></div>
+          <div class="spacing-token"><code>--sp-16</code></div>
+          <div class="spacing-px">64px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Major section gaps</div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">sp-20</div>
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:80px"></div></div>
+          <div class="spacing-token"><code>--sp-20</code></div>
+          <div class="spacing-px">80px</div>
+          <div style="font-size:12px; color:var(--rb-text2); margin-left:8px;">Page-level section spacing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 06 BORDER RADIUS ─── -->
+    <section class="section" id="radius">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Border Radius</h2>
+      </div>
+      <p class="section-desc">Rounded corners reinforce the brand's friendly and modern character. Use larger radii (16–24px) for cards and containers; smaller radii for inline elements like badges and tags. Never use sharp 0px corners on primary UI elements.</p>
+
+      <div class="radius-grid">
+        <div class="radius-card" style="border-radius:var(--radius-sm)">
+          <div class="radius-box" style="border-radius:var(--radius-sm)"></div>
+          <div class="radius-name">Small</div>
+          <div class="radius-px">8px</div>
+          <div class="radius-token"><code>--radius-sm</code></div>
+        </div>
+        <div class="radius-card" style="border-radius:var(--radius-md)">
+          <div class="radius-box" style="border-radius:var(--radius-md)"></div>
+          <div class="radius-name">Medium</div>
+          <div class="radius-px">12px</div>
+          <div class="radius-token"><code>--radius-md</code></div>
+        </div>
+        <div class="radius-card" style="border-radius:var(--radius-lg)">
+          <div class="radius-box" style="border-radius:var(--radius-lg)"></div>
+          <div class="radius-name">Large</div>
+          <div class="radius-px">16px</div>
+          <div class="radius-token"><code>--radius-lg</code></div>
+        </div>
+        <div class="radius-card" style="border-radius:var(--radius-xl)">
+          <div class="radius-box" style="border-radius:var(--radius-xl)"></div>
+          <div class="radius-name">XL</div>
+          <div class="radius-px">20px</div>
+          <div class="radius-token"><code>--radius-xl</code></div>
+        </div>
+        <div class="radius-card" style="border-radius:var(--radius-2xl)">
+          <div class="radius-box" style="border-radius:var(--radius-2xl)"></div>
+          <div class="radius-name">2XL</div>
+          <div class="radius-px">24px</div>
+          <div class="radius-token"><code>--radius-2xl</code></div>
+        </div>
+        <div class="radius-card" style="border-radius:var(--radius-full)">
+          <div class="radius-box" style="border-radius:var(--radius-full)"></div>
+          <div class="radius-name">Full</div>
+          <div class="radius-px">9999px</div>
+          <div class="radius-token"><code>--radius-full</code></div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Usage Guide</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Use On</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--radius-sm</code></td><td>8px</td><td>Dropdowns, tooltips, nav items, small inner elements</td></tr>
+          <tr><td><code>--radius-md</code></td><td>12px</td><td>Buttons, inputs, table cells, compact cards</td></tr>
+          <tr><td><code>--radius-lg</code></td><td>16px</td><td>Standard cards, image thumbnails, modals</td></tr>
+          <tr><td><code>--radius-xl</code></td><td>20px</td><td>Feature cards, prominent sections, panels</td></tr>
+          <tr><td><code>--radius-2xl</code></td><td>24px</td><td>Hero cards, banners, large containers</td></tr>
+          <tr><td><code>--radius-full</code></td><td>9999px</td><td>Badges, pills, avatar borders, tags, sliders</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 07 SHADOWS ─── -->
+    <section class="section" id="shadows">
+      <div class="section-header">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Shadows</h2>
+      </div>
+      <p class="section-desc">All shadows use warm brown tones derived from the brand palette rather than pure black. This keeps the overall feel soft and on-brand. Avoid heavy drop shadows — depth should be subtle.</p>
+
+      <div class="shadow-grid">
+        <div class="shadow-card" style="box-shadow:var(--shadow-xs)">
+          <div class="shadow-label">Shadow XS</div>
+          <div class="shadow-token"><code>--shadow-xs</code></div>
+          <div class="shadow-use">Inline elements, tags, subtle lift</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-sm)">
+          <div class="shadow-label">Shadow SM</div>
+          <div class="shadow-token"><code>--shadow-sm</code></div>
+          <div class="shadow-use">Standard cards, list items</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-md)">
+          <div class="shadow-label">Shadow MD</div>
+          <div class="shadow-token"><code>--shadow-md</code></div>
+          <div class="shadow-use">Hover states, floating cards</div>
+        </div>
+        <div class="shadow-card" style="box-shadow:var(--shadow-lg)">
+          <div class="shadow-label">Shadow LG</div>
+          <div class="shadow-token"><code>--shadow-lg</code></div>
+          <div class="shadow-use">Modals, drawers, popovers</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 08 BUTTONS ─── -->
+    <section class="section" id="buttons">
+      <div class="section-header">
+        <span class="section-number">08</span>
+        <h2 class="section-title">Buttons</h2>
+      </div>
+      <p class="section-desc">Buttons are the primary call-to-action vehicle. Use <strong>Primary</strong> for the most important action on a screen. Never use more than one Primary button per section.</p>
+
+      <div class="demo-box">
+        <div class="demo-label">Variants</div>
+        <div class="demo-row">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-accent">Accent / Promo</button>
+          <button class="btn btn-outline">Outline</button>
+          <button class="btn btn-ghost">Ghost</button>
+          <button class="btn btn-danger">Destructive</button>
+        </div>
+
+        <div class="demo-label">Sizes</div>
+        <div class="demo-row">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-lg">Large</button>
+        </div>
+
+        <div class="demo-label">States</div>
+        <div class="demo-row">
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-disabled">Disabled</button>
+          <button class="btn btn-primary" style="background:var(--brand-700);">Hover (approx)</button>
+        </div>
+      </div>
+
+      <table class="token-table">
+        <thead>
+          <tr><th>Variant</th><th>Tailwind Classes</th><th>Use When</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Primary</td><td><code>bg-brand-900 text-white hover:bg-brand-700</code></td><td>Main CTA — "Beli Sekarang", "Top Up"</td></tr>
+          <tr><td>Secondary</td><td><code>bg-rb-alt text-rb-text border-rb-border</code></td><td>Supporting actions — "Lihat Detail"</td></tr>
+          <tr><td>Accent</td><td><code>bg-rb-orange text-white</code></td><td>Promotional CTAs, sale highlights</td></tr>
+          <tr><td>Outline</td><td><code>border-2 border-brand-300 text-brand-900</code></td><td>Secondary alongside Primary</td></tr>
+          <tr><td>Ghost</td><td><code>bg-transparent text-rb-text2 hover:bg-rb-alt</code></td><td>Nav items, subtle actions, cancel</td></tr>
+          <tr><td>Destructive</td><td><code>bg-red-soft text-rb-red</code></td><td>Delete, remove, irreversible actions</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 09 BADGES ─── -->
+    <section class="section" id="badges">
+      <div class="section-header">
+        <span class="section-number">09</span>
+        <h2 class="section-title">Badges & Pills</h2>
+      </div>
+      <p class="section-desc">Badges communicate status, category, and quick metadata. Always use the <code>--radius-full</code> shape. Keep text concise — 1 to 3 words maximum.</p>
+
+      <div class="demo-box">
+        <div class="demo-label">Status Badges</div>
+        <div class="demo-row">
+          <span class="badge badge-green badge-dot">Sukses</span>
+          <span class="badge badge-amber badge-dot">Pending</span>
+          <span class="badge badge-red badge-dot">Gagal</span>
+          <span class="badge badge-secondary badge-dot">Diproses</span>
+        </div>
+
+        <div class="demo-label">Category / Label Badges</div>
+        <div class="demo-row">
+          <span class="badge badge-primary">Populer</span>
+          <span class="badge badge-orange">Promo</span>
+          <span class="badge badge-secondary">Baru</span>
+          <span class="badge badge-outline">Coming Soon</span>
+          <span class="badge badge-green">Terverifikasi</span>
+          <span class="badge badge-amber">Limited</span>
+        </div>
+      </div>
+
+      <table class="token-table">
+        <thead>
+          <tr><th>Variant</th><th>Background → Text</th><th>Use For</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Green + dot</td><td><code>rb-green-soft → #15803D</code></td><td>Success, completed, verified, aman</td></tr>
+          <tr><td>Amber + dot</td><td><code>#FFFBEB → #92400E</code></td><td>Pending, processing, warning</td></tr>
+          <tr><td>Red + dot</td><td><code>rb-red-soft → rb-red</code></td><td>Failed, error, rejected</td></tr>
+          <tr><td>Primary filled</td><td><code>brand-900 → white</code></td><td>Hot, Popular, Featured tags</td></tr>
+          <tr><td>Orange</td><td><code>#FEF0E3 → #B45309</code></td><td>Promo, Sale, Discount</td></tr>
+          <tr><td>Outline</td><td><code>transparent → rb-text2</code></td><td>Coming Soon, Inactive</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 10 INPUTS ─── -->
+    <section class="section" id="inputs">
+      <div class="section-header">
+        <span class="section-number">10</span>
+        <h2 class="section-title">Form Inputs</h2>
+      </div>
+      <p class="section-desc">Inputs use a warm border that shifts to <strong>brand-500</strong> on focus with a soft ring. Error states swap to red. Labels are always visible above the field — no floating labels.</p>
+
+      <div class="demo-box">
+        <div class="input-group">
+          <label class="input-label">Username Roblox</label>
+          <input class="inp" type="text" placeholder="Masukkan username kamu..." />
+          <span class="input-hint">Pastikan username sesuai dengan akun Roblox aktif.</span>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Nomor HP</label>
+          <input class="inp" type="tel" placeholder="08xx-xxxx-xxxx" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Email (Error State)</label>
+          <input class="inp inp-error" type="email" value="email-salah" />
+          <span class="input-error-msg">⚠ Format email tidak valid.</span>
+        </div>
+      </div>
+
+      <table class="token-table">
+        <thead>
+          <tr><th>State</th><th>Border</th><th>Ring</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Default</td><td><code>--rb-border</code> (#E8D8C8) 1.5px</td><td>None</td></tr>
+          <tr><td>Focus</td><td><code>--brand-500</code> (#A8745A) 1.5px</td><td>brand-500/15, 3px</td></tr>
+          <tr><td>Error</td><td><code>--rb-red</code> (#E05252) 1.5px</td><td>rb-red/15, 3px on focus</td></tr>
+          <tr><td>Disabled</td><td><code>--rb-border</code></td><td>opacity-50, pointer-events-none</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 11 CARDS ─── -->
+    <section class="section" id="cards">
+      <div class="section-header">
+        <span class="section-number">11</span>
+        <h2 class="section-title">Cards</h2>
+      </div>
+      <p class="section-desc">Cards are the primary content container. Use <code>rb-surface</code> as background with a 1px <code>rb-border</code> border and a gentle shadow. Hover states should elevate with <code>shadow-md</code>.</p>
+
+      <h3 class="sub-title">Service Cards</h3>
+      <div class="card-demo-grid">
+        <div class="demo-card">
+          <div class="card-icon">💎</div>
+          <div class="card-title">Robux Instan</div>
+          <div class="card-desc">Top up Robux langsung ke akun kamu dalam hitungan menit.</div>
+          <button class="btn btn-primary btn-sm">Beli Sekarang</button>
+        </div>
+        <div class="demo-card">
+          <div class="card-icon">🎮</div>
+          <div class="card-title">Item Roblox</div>
+          <div class="card-desc">Beli item, avatar, dan aksesori eksklusif Roblox.</div>
+          <button class="btn btn-outline btn-sm">Lihat Item</button>
+        </div>
+        <div class="demo-card">
+          <div class="card-icon">🎁</div>
+          <div class="card-title">Gift &amp; Gamepass</div>
+          <div class="card-desc">Hadiahi teman dengan gift card atau gamepass favorit.</div>
+          <div class="demo-row" style="margin-bottom:0">
+            <button class="btn btn-secondary btn-sm">Pelajari</button>
+            <span class="badge badge-orange">Hot</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Stat Cards</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Pembeli</div>
+          <div class="stat-value">50K+</div>
+          <div class="stat-change up">↑ Gamer aktif</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Robux Terjual</div>
+          <div class="stat-value">10M+</div>
+          <div class="stat-change up">↑ Sepanjang masa</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Order</div>
+          <div class="stat-value">120K</div>
+          <div class="stat-change neutral">Sejak 2022</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pengalaman</div>
+          <div class="stat-value">3 Thn</div>
+          <div class="stat-change neutral">Terpercaya</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Card Anatomy</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Property</th><th>Value</th><th>Token</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Background</td><td>#FFFDFC</td><td><code>--rb-surface</code></td></tr>
+          <tr><td>Border</td><td>1px #E8D8C8</td><td><code>--rb-border</code></td></tr>
+          <tr><td>Border Radius</td><td>16–20px</td><td><code>--radius-lg / --radius-xl</code></td></tr>
+          <tr><td>Padding</td><td>20–24px</td><td><code>--sp-5 / --sp-6</code></td></tr>
+          <tr><td>Shadow (default)</td><td>shadow-xs / shadow-sm</td><td><code>--shadow-xs</code></td></tr>
+          <tr><td>Shadow (hover)</td><td>shadow-md</td><td><code>--shadow-md</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 12 ALERTS ─── -->
+    <section class="section" id="alerts">
+      <div class="section-header">
+        <span class="section-number">12</span>
+        <h2 class="section-title">Alerts & Feedback</h2>
+      </div>
+      <p class="section-desc">Alerts communicate system-level feedback — success, warning, error, or informational. Always pair with an icon for quick scanability.</p>
+
+      <div class="demo-box">
+        <div class="alert alert-success">
+          <div class="alert-icon">✅</div>
+          <div class="alert-content">
+            <div class="alert-title">Transaksi Berhasil!</div>
+            <p>Robux kamu sudah dikirim ke akun Roblox dalam waktu 2 menit.</p>
+          </div>
+        </div>
+        <div class="alert alert-info">
+          <div class="alert-icon">ℹ️</div>
+          <div class="alert-content">
+            <div class="alert-title">Sedang Diproses</div>
+            <p>Pesananmu sedang kami proses. Estimasi pengiriman 5–10 menit.</p>
+          </div>
+        </div>
+        <div class="alert alert-warning">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <div class="alert-title">Stok Terbatas</div>
+            <p>Paket Robux 10.000 hanya tersisa beberapa slot. Segera pesan!</p>
+          </div>
+        </div>
+        <div class="alert alert-error">
+          <div class="alert-icon">❌</div>
+          <div class="alert-content">
+            <div class="alert-title">Pembayaran Gagal</div>
+            <p>Transaksi tidak dapat diproses. Coba metode pembayaran lain atau hubungi support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 13 CSS TOKENS ─── -->
+    <section class="section" id="tokens">
+      <div class="section-header">
+        <span class="section-number">13</span>
+        <h2 class="section-title">CSS / Tailwind Token Reference</h2>
+      </div>
+      <p class="section-desc">All tokens are defined in <code>globals.css</code> under the <code>@theme inline</code> block and available as Tailwind utilities. Use the semantic names — avoid hardcoding hex values in components.</p>
+
+      <h3 class="sub-title">Tailwind Utility Classes — Colors</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>Purpose</th><th>Tailwind Class</th><th>CSS Var</th><th>Hex</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Primary background</td><td><code>bg-brand-900</code></td><td><code>--color-brand-900</code></td><td>#6E4330</td></tr>
+          <tr><td>Primary hover</td><td><code>bg-brand-700</code></td><td><code>--color-brand-700</code></td><td>#875643</td></tr>
+          <tr><td>Mid-brand</td><td><code>bg-brand-500</code></td><td><code>--color-brand-500</code></td><td>#A8745A</td></tr>
+          <tr><td>Light accent</td><td><code>bg-brand-300</code></td><td><code>--color-brand-300</code></td><td>#D9B8A2</td></tr>
+          <tr><td>Lightest tint</td><td><code>bg-brand-100</code></td><td><code>--color-brand-100</code></td><td>#F2E2D6</td></tr>
+          <tr><td>Dark text / headings</td><td><code>text-brand-dark</code></td><td><code>--color-brand-dark</code></td><td>#3F2D25</td></tr>
+          <tr><td>Page background</td><td><code>bg-rb-bg</code></td><td><code>--color-rb-bg</code></td><td>#FAF6F1</td></tr>
+          <tr><td>Card / surface</td><td><code>bg-rb-surface</code></td><td><code>--color-rb-surface</code></td><td>#FFFDFC</td></tr>
+          <tr><td>Alt section bg</td><td><code>bg-rb-alt</code></td><td><code>--color-rb-alt</code></td><td>#F3E8DD</td></tr>
+          <tr><td>Border</td><td><code>border-rb-border</code></td><td><code>--color-rb-border</code></td><td>#E8D8C8</td></tr>
+          <tr><td>Primary text</td><td><code>text-rb-text</code></td><td><code>--color-rb-text</code></td><td>#3F2D25</td></tr>
+          <tr><td>Secondary text</td><td><code>text-rb-text2</code></td><td><code>--color-rb-text2</code></td><td>#8C7A6B</td></tr>
+          <tr><td>Orange accent</td><td><code>bg-rb-orange</code></td><td><code>--color-rb-orange</code></td><td>#F2A65A</td></tr>
+          <tr><td>Peach accent</td><td><code>bg-rb-peach</code></td><td><code>--color-rb-peach</code></td><td>#F6C28B</td></tr>
+          <tr><td>Success green</td><td><code>bg-rb-green</code></td><td><code>--color-rb-green</code></td><td>#72C29A</td></tr>
+          <tr><td>Soft green bg</td><td><code>bg-rb-green-soft</code></td><td><code>--color-rb-green-soft</code></td><td>#E7F7EE</td></tr>
+          <tr><td>Amber warning</td><td><code>bg-rb-amber</code></td><td><code>--color-rb-amber</code></td><td>#F4B740</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-title">shadcn/ui Semantic Mappings</h3>
+      <table class="token-table">
+        <thead>
+          <tr><th>shadcn Token</th><th>Maps To</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>primary</code></td><td>brand-900</td><td>#6E4330</td></tr>
+          <tr><td><code>primary-foreground</code></td><td>rb-surface</td><td>#FFFDFC</td></tr>
+          <tr><td><code>secondary</code></td><td>rb-alt</td><td>#F3E8DD</td></tr>
+          <tr><td><code>secondary-foreground</code></td><td>rb-text</td><td>#3F2D25</td></tr>
+          <tr><td><code>muted</code></td><td>rb-alt</td><td>#F3E8DD</td></tr>
+          <tr><td><code>muted-foreground</code></td><td>rb-text2</td><td>#8C7A6B</td></tr>
+          <tr><td><code>accent</code></td><td>brand-100</td><td>#F2E2D6</td></tr>
+          <tr><td><code>accent-foreground</code></td><td>brand-900</td><td>#6E4330</td></tr>
+          <tr><td><code>background</code></td><td>rb-bg</td><td>#FAF6F1</td></tr>
+          <tr><td><code>foreground</code></td><td>rb-text</td><td>#3F2D25</td></tr>
+          <tr><td><code>card</code></td><td>rb-surface</td><td>#FFFDFC</td></tr>
+          <tr><td><code>border</code></td><td>rb-border</td><td>#E8D8C8</td></tr>
+          <tr><td><code>ring</code></td><td>brand-500</td><td>#A8745A</td></tr>
+          <tr><td><code>radius</code></td><td>12px (0.75rem)</td><td>Base radius unit</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ─── 14 DO'S & DON'TS ─── -->
+    <section class="section" id="dodont">
+      <div class="section-header">
+        <span class="section-number">14</span>
+        <h2 class="section-title">Do's & Don'ts</h2>
+      </div>
+      <p class="section-desc">Quick reference for the most important guardrails when building Robuxindo UIs.</p>
+
+      <h3 class="sub-title">Visual Style</h3>
+      <div class="do-dont-grid">
+        <div class="do-card">
+          <div class="card-header"><span>✅</span> Do</div>
+          <ul>
+            <li><span>→</span> Use warm beige/cream as page backgrounds</li>
+            <li><span>→</span> Use brand brown for primary CTAs and headings</li>
+            <li><span>→</span> Use rounded corners (≥12px) on all cards and buttons</li>
+            <li><span>→</span> Keep shadows soft and warm-toned</li>
+            <li><span>→</span> Use orange/peach as promotional accents</li>
+            <li><span>→</span> Keep sections airy with generous spacing</li>
+            <li><span>→</span> Use green for "aman", verified, and success states</li>
+            <li><span>→</span> Maintain 4-pt spacing grid throughout</li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <div class="card-header"><span>❌</span> Don't</div>
+          <ul>
+            <li><span>→</span> Use dark mode as the primary/default mode</li>
+            <li><span>→</span> Use neon colors or cyber/gaming aesthetics</li>
+            <li><span>→</span> Use pure black (#000000) as a dominant color</li>
+            <li><span>→</span> Mix more than 3 accent colors in one section</li>
+            <li><span>→</span> Use sharp 0px corners on cards or primary buttons</li>
+            <li><span>→</span> Crowd sections — maintain breathing room</li>
+            <li><span>→</span> Use blue as a primary brand color</li>
+            <li><span>→</span> Create heavy, layered gradients</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Component Usage</h3>
+      <div class="do-dont-grid">
+        <div class="do-card">
+          <div class="card-header"><span>✅</span> Do</div>
+          <ul>
+            <li><span>→</span> One primary button per view/section</li>
+            <li><span>→</span> Always show visible labels above inputs</li>
+            <li><span>→</span> Use badge-dot for status indicators</li>
+            <li><span>→</span> Add hover transitions (150ms ease)</li>
+            <li><span>→</span> Show meaningful empty states</li>
+            <li><span>→</span> Provide error messages at field level</li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <div class="card-header"><span>❌</span> Don't</div>
+          <ul>
+            <li><span>→</span> Stack multiple primary CTAs together</li>
+            <li><span>→</span> Use placeholder text as the only label</li>
+            <li><span>→</span> Use bare color for status — always pair with dot/icon</li>
+            <li><span>→</span> Trigger animations over 300ms on interactions</li>
+            <li><span>→</span> Show generic "No data" empty states</li>
+            <li><span>→</span> Show only a toast for form validation errors</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Logo & Brand</h3>
+      <div class="do-dont-grid">
+        <div class="do-card">
+          <div class="card-header"><span>✅</span> Do</div>
+          <ul>
+            <li><span>→</span> Use provided logo asset files as-is</li>
+            <li><span>→</span> Maintain clear space around the logo</li>
+            <li><span>→</span> Place logo on light or brand-dark backgrounds</li>
+            <li><span>→</span> Keep logo minimum 24px height</li>
+          </ul>
+        </div>
+        <div class="dont-card">
+          <div class="card-header"><span>❌</span> Don't</div>
+          <ul>
+            <li><span>→</span> Stretch or distort the logo</li>
+            <li><span>→</span> Recolor or add effects to the logo</li>
+            <li><span>→</span> Place logo on busy photo backgrounds</li>
+            <li><span>→</span> Create new logo variants without approval</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer note -->
+    <div style="border-top:1px solid var(--rb-border); padding-top:var(--sp-8); margin-top:var(--sp-8); color:var(--rb-text2); font-size:13px; line-height:1.8;">
+      <strong style="color:var(--rb-text);">Robuxindo Store — Design System v1.0</strong><br>
+      Maintained by the Robuxindo development team. Last updated April 2026.<br>
+      Questions? Refer to <code>project_context.md</code> or the <code>globals.css</code> token file.<br><br>
+      <em style="font-size:12px; color:var(--rb-border);">Disclaimer: Robuxindo Store is an independent platform and is not affiliated with or endorsed by Roblox Corporation.</em>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

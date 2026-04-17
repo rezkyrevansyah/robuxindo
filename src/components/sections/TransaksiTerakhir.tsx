@@ -27,12 +27,12 @@ export default function TransaksiTerakhir() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-8 flex flex-col gap-4 min-[430px]:flex-row min-[430px]:items-start min-[430px]:justify-between sm:items-end">
+        <div className="mb-8 flex flex-col gap-4 xs:flex-row xs:items-start xs:justify-between sm:items-end">
           <div>
             <span className="inline-block text-xs font-semibold text-brand-500 uppercase tracking-widest mb-2">
               Live Transaksi
             </span>
-            <h2 className="font-heading text-[1.75rem] font-bold text-brand-900 min-[430px]:text-[1.9rem] lg:text-[2.35rem]">
+            <h2 className="font-heading text-[1.75rem] font-bold text-brand-900 xs:text-[1.9rem] lg:text-[2.35rem]">
               Baru Saja Dibeli
             </h2>
             <p className="mt-2 max-w-sm text-sm text-rb-text2 sm:text-base">
@@ -55,7 +55,7 @@ export default function TransaksiTerakhir() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ delay: i * 0.07, duration: 0.45 }}
-              className="flex items-center gap-3 rounded-2xl border border-rb-border bg-rb-surface px-3.5 py-3 shadow-[0_2px_10px_rgba(63,45,37,0.05)] min-[430px]:px-4"
+              className="flex items-center gap-3 rounded-2xl border border-rb-border bg-rb-surface px-3.5 py-3 shadow-[0_2px_10px_rgba(63,45,37,0.05)] xs:px-4"
             >
               {/* Avatar */}
               <div

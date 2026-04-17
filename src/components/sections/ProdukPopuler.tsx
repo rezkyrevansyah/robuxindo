@@ -97,12 +97,12 @@ export default function ProdukPopuler() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-6 flex flex-col gap-4 min-[430px]:flex-row min-[430px]:items-end min-[430px]:justify-between">
+        <div className="mb-6 flex flex-col gap-4 xs:flex-row xs:items-end xs:justify-between">
           <div>
             <span className="inline-block text-xs font-semibold text-brand-500 uppercase tracking-widest mb-2">
               Trending Sekarang
             </span>
-            <h2 className="font-heading text-[1.7rem] font-bold text-brand-900 min-[430px]:text-[1.8rem] lg:text-[2.2rem]">
+            <h2 className="font-heading text-[1.7rem] font-bold text-brand-900 xs:text-[1.8rem] lg:text-[2.2rem]">
               Produk Populer
             </h2>
             <p className="mt-1 text-sm text-rb-text2">
@@ -132,7 +132,7 @@ export default function ProdukPopuler() {
         {/* Horizontal scroll container */}
         <div
           ref={scrollRef}
-          className="flex gap-3 overflow-x-auto pb-3 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden min-[430px]:gap-3.5"
+          className="flex gap-3 overflow-x-auto pb-3 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden xs:gap-3.5"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {gameProducts.map((product, i) => (
@@ -143,7 +143,7 @@ export default function ProdukPopuler() {
               viewport={{ once: true, margin: "-20px" }}
               transition={{ delay: i * 0.06, duration: 0.4, ease: "easeOut" }}
               style={{ scrollSnapAlign: "start" }}
-              className="w-[9.4rem] shrink-0 min-[430px]:w-40 sm:w-[11.5rem]"
+              className="w-[9.4rem] shrink-0 xs:w-40 sm:w-[11.5rem]"
             >
               <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-rb-border bg-rb-surface shadow-[0_2px_10px_rgba(63,45,37,0.05)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(63,45,37,0.12)]">
 
@@ -195,7 +195,7 @@ export default function ProdukPopuler() {
                     </p>
                   </div>
                   <Link
-                    href="#"
+                    href="/produk"
                     className="mt-auto flex w-full items-center justify-center rounded-xl bg-brand-900 py-2 text-xs font-semibold text-white transition-all hover:bg-brand-700 active:scale-[0.98]"
                   >
                     Beli

@@ -102,7 +102,7 @@ export default function Stats() {
               <BadgeCheck className="h-3.5 w-3.5" />
               Trusted Store
             </div>
-            <h2 className="font-heading text-[1.75rem] font-black tracking-tight text-brand-900 min-[430px]:text-[1.9rem] sm:text-[2.2rem]">
+            <h2 className="font-heading text-[1.75rem] font-black tracking-tight text-brand-900 xs:text-[1.9rem] sm:text-[2.2rem]">
               Angka Nyata yang Bangun Trust
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-6 text-rb-text2 sm:text-base">
@@ -117,7 +117,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="grid gap-4 min-[430px]:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 xs:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -137,7 +137,7 @@ export default function Stats() {
                   <stat.icon className="h-5 w-5" strokeWidth={1.9} />
                 </div>
 
-                <div className="font-heading text-[1.7rem] font-black leading-none text-brand-900 min-[430px]:text-[1.9rem] sm:text-[2.15rem]">
+                <div className="font-heading text-[1.7rem] font-black leading-none text-brand-900 xs:text-[1.9rem] sm:text-[2.15rem]">
                   <CountUp value={stat.value} formatted={stat.formatted} />
                 </div>
 

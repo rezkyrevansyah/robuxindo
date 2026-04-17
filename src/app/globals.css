@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --breakpoint-xs: 414px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -113,6 +114,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    caret-color: auto;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+
   body {
     @apply bg-rb-bg text-rb-text;
   }

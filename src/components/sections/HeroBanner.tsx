@@ -33,7 +33,7 @@ export default function HeroBanner() {
       aria-label="Banner promosi"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="relative w-full overflow-hidden rounded-[26px] border border-rb-border/80 shadow-[0_18px_40px_rgba(110,67,48,0.08)] aspect-2/1 sm:aspect-3/1 lg:aspect-[16/5]">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[26px] border border-rb-border/80 shadow-[0_18px_40px_rgba(110,67,48,0.08)] xs:aspect-[2.2/1] sm:aspect-3/1 lg:aspect-[16/5]">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={current}

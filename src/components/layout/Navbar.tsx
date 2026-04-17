@@ -3,27 +3,95 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, ShoppingCart } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { LogOut, Menu, ShoppingCart, UserRound } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import {
+  clearMockAuthUser,
+  getMockAuthUser,
+  getUserInitials,
+  subscribeMockAuth,
+  type MockAuthUser,
+} from "@/lib/mock-auth";
 
 const navLinks = [
-  { label: "Beranda", href: "/" },
-  { label: "Produk", href: "#produk" },
-  { label: "Beli Gamepass", href: "#layanan" },
-  { label: "Cek Pesanan", href: "#cek-pesanan" },
-  { label: "Leaderboard", href: "#leaderboard" },
-  { label: "Bantuan", href: "#bantuan" },
+  { label: "Produk", href: "/produk" },
+  { label: "Beli Gamepass", href: "/beli-gamepass" },
+  { label: "Robux via Login", href: "/beli-via-login" },
+  { label: "Cek Pesanan", href: "/cek-pesanan" },
+  { label: "Leaderboard", href: "/leaderboard" },
 ];
+
+function isNavLinkActive(href: string, pathname: string, categoryParam: string | null) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  if (href === "/produk") {
+    return pathname.startsWith("/produk") && categoryParam !== "Gamepass";
+  }
+
+  if (href.startsWith("/produk?")) {
+    const [, query = ""] = href.split("?");
+    const params = new URLSearchParams(query);
+    const kategori = params.get("kategori");
+
+    return pathname === "/produk" && categoryParam === kategori;
+  }
+
+  if (href === "/beli-gamepass") {
+    return pathname === "/beli-gamepass";
+  }
+
+  if (href === "/beli-via-login") {
+    return pathname === "/beli-via-login";
+  }
+
+  if (href === "/cek-pesanan") {
+    return pathname === "/cek-pesanan";
+  }
+
+  if (href === "/leaderboard") {
+    return pathname === "/leaderboard";
+  }
+
+  return false;
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState<MockAuthUser | null>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+  const categoryParam =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("kategori")
+      : null;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sync = () => setUser(getMockAuthUser());
+    sync();
+    return subscribeMockAuth(sync);
+  }, []);
+
+  const handleLogout = () => {
+    clearMockAuthUser();
+  };
 
   return (
     <header
@@ -34,128 +102,214 @@ export default function Navbar() {
           : "shadow-[0_2px_10px_rgba(63,45,37,0.04)]"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5">
+      <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between gap-3 px-4 sm:h-[74px] sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
           <Image
             src="/logo_robuxindo.png"
             alt="Robuxindo Store"
-            width={38}
-            height={38}
-            className="rounded-full"
+            width={42}
+            height={42}
+            className="rounded-full border border-rb-border/80 bg-white p-0.5"
             priority
           />
-          <div className="hidden sm:block">
-            <p className="font-heading text-lg font-extrabold text-brand-900">Robuxindo</p>
-            <p className="text-[11px] font-medium tracking-wide text-rb-text2">
+          <div className="hidden xs:block">
+            <p className="font-heading text-[1.7rem] font-black leading-none tracking-tight text-brand-900">
+              Robuxindo
+            </p>
+            <p className="mt-1 text-[12px] font-medium text-rb-text2">
               Top up Roblox terpercaya
             </p>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center justify-center gap-1">
-          {navLinks.map((link, index) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={cn(
-                "rounded-full px-3.5 py-2 text-sm font-semibold transition-colors",
-                index === 0
-                  ? "bg-brand-100 text-brand-900"
-                  : "text-rb-text hover:bg-brand-100/80 hover:text-brand-900"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden xl:flex items-center justify-center rounded-full border border-rb-border bg-white/82 p-1.5 shadow-[0_10px_22px_rgba(110,67,48,0.05)]">
+          {navLinks.map((link) => {
+            const isActive = isNavLinkActive(link.href, pathname, categoryParam);
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  "whitespace-nowrap rounded-full px-4 py-2.5 text-[14px] font-semibold leading-none transition-colors",
+                  isActive
+                    ? "bg-brand-900 text-white shadow-[0_10px_18px_rgba(110,67,48,0.14)]"
+                    : "text-rb-text2 hover:bg-brand-100/80 hover:text-brand-900"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden lg:flex shrink-0 items-center gap-2">
+        <div className="hidden xl:flex shrink-0 items-center gap-2.5">
           <Link
             href="/cart"
             aria-label="Keranjang"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-rb-border bg-white text-rb-text2 transition-colors hover:border-brand-300 hover:text-brand-900"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-rb-border bg-white text-rb-text2 shadow-[0_8px_18px_rgba(110,67,48,0.05)] transition-colors hover:border-brand-300 hover:text-brand-900"
           >
             <ShoppingCart className="h-4 w-4" />
           </Link>
-          <Link
-            href="/login"
-            className="rounded-full border border-rb-border bg-white px-4 py-2 text-sm font-semibold text-brand-900 transition-colors hover:border-brand-300 hover:bg-brand-100"
-          >
-            Login
-          </Link>
-          <Link
-            href="/register"
-            className="rounded-full bg-brand-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-          >
-            Register
-          </Link>
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-3 rounded-full border border-rb-border bg-white px-3 py-2 shadow-[0_8px_18px_rgba(110,67,48,0.05)]">
+                <Avatar size="default" className="size-9">
+                  <AvatarFallback className="bg-brand-100 font-semibold text-brand-900">
+                    {getUserInitials(user.name)}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="text-left">
+                  <p className="text-sm font-semibold leading-none text-brand-900">{user.name}</p>
+                  <p className="mt-1 text-[11px] text-rb-text2">Profil saya</p>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={8}
+                className="w-56 rounded-2xl border border-rb-border bg-white p-2 shadow-[0_16px_28px_rgba(110,67,48,0.12)]"
+              >
+                <div className="px-3 py-2">
+                  <p className="text-sm font-semibold text-brand-900">{user.name}</p>
+                  <p className="mt-1 text-xs text-rb-text2">{user.email}</p>
+                </div>
+                <DropdownMenuSeparator className="bg-rb-border" />
+                <DropdownMenuItem
+                  onClick={() => router.push("/profil")}
+                  className="rounded-xl px-3 py-2.5 text-brand-900"
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <UserRound className="h-4 w-4" />
+                    Profil Saya
+                  </span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={handleLogout}
+                  className="rounded-xl px-3 py-2.5 text-brand-900"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="rounded-full border border-rb-border bg-white px-5 py-2.5 text-sm font-semibold text-brand-900 shadow-[0_8px_18px_rgba(110,67,48,0.05)] transition-colors hover:border-brand-300 hover:bg-brand-100"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className="rounded-full bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_20px_rgba(110,67,48,0.16)] transition-colors hover:bg-brand-700"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-1.5 xs:gap-2 xl:hidden">
           <Link
             href="/cart"
             aria-label="Keranjang"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-rb-border bg-white text-rb-text2 transition-colors hover:bg-brand-100 hover:text-brand-900"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-rb-border bg-white text-rb-text2 shadow-[0_8px_18px_rgba(110,67,48,0.05)] transition-colors hover:bg-brand-100 hover:text-brand-900"
           >
             <ShoppingCart className="h-4 w-4" />
           </Link>
 
           <Sheet>
-            <SheetTrigger className="flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-brand-100">
+            <SheetTrigger className="flex h-10 w-10 items-center justify-center rounded-full border border-rb-border bg-white shadow-[0_8px_18px_rgba(110,67,48,0.05)] transition-colors hover:bg-brand-100">
               <Menu className="h-5 w-5 text-brand-900" />
               <span className="sr-only">Buka menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-rb-surface p-0">
+            <SheetContent side="right" className="w-full max-w-sm bg-rb-surface p-0">
               <div className="border-b border-rb-border px-5 py-5">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/logo_robuxindo.png"
                     alt="Robuxindo Store"
-                    width={40}
-                    height={40}
-                    className="rounded-full"
+                    width={42}
+                    height={42}
+                    className="rounded-full border border-rb-border bg-white p-0.5"
                   />
                   <div>
-                    <p className="font-heading text-base font-bold text-brand-900">
-                      Robuxindo Store
+                    <p className="font-heading text-lg font-black text-brand-900">
+                      Robuxindo
                     </p>
-                    <p className="text-xs text-rb-text2">Murah, cepat, aman</p>
+                    <p className="text-xs text-rb-text2">Top up Roblox terpercaya</p>
                   </div>
                 </div>
               </div>
 
-              <nav className="flex flex-col gap-1 px-4 py-4">
-                {navLinks.map((link, index) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className={cn(
-                      "rounded-xl px-3.5 py-3 text-sm font-medium transition-colors",
-                      index === 0
-                        ? "bg-brand-100 font-semibold text-brand-900"
-                        : "text-rb-text2 hover:bg-brand-100 hover:text-brand-900"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <nav className="flex flex-col gap-1.5 px-4 py-4">
+                {navLinks.map((link) => {
+                  const isActive = isNavLinkActive(link.href, pathname, categoryParam);
+
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={cn(
+                        "rounded-2xl px-4 py-3.5 text-sm font-medium transition-colors",
+                        isActive
+                          ? "bg-brand-900 font-semibold text-white shadow-[0_10px_18px_rgba(110,67,48,0.14)]"
+                          : "text-rb-text2 hover:bg-brand-100 hover:text-brand-900"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
               </nav>
 
               <div className="border-t border-rb-border px-4 py-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <Link
-                    href="/login"
-                    className="flex items-center justify-center rounded-xl border border-rb-border bg-white px-4 py-3 text-sm font-semibold text-brand-900 transition-colors hover:bg-brand-100"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/register"
-                    className="flex items-center justify-center rounded-xl bg-brand-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-                  >
-                    Register
-                  </Link>
-                </div>
+                {user ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 rounded-2xl border border-rb-border bg-white p-3">
+                      <Avatar size="default" className="size-10">
+                        <AvatarFallback className="bg-brand-100 font-semibold text-brand-900">
+                          {getUserInitials(user.name)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="text-sm font-semibold text-brand-900">{user.name}</p>
+                        <p className="text-xs text-rb-text2">{user.email}</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Link
+                        href="/profil"
+                        className="flex items-center justify-center rounded-2xl border border-rb-border bg-white px-4 py-3 text-sm font-semibold text-brand-900 transition-colors hover:bg-brand-100"
+                      >
+                        Profil
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={handleLogout}
+                        className="flex items-center justify-center rounded-2xl bg-brand-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-3">
+                    <Link
+                      href="/login"
+                      className="flex items-center justify-center rounded-2xl border border-rb-border bg-white px-4 py-3 text-sm font-semibold text-brand-900 transition-colors hover:bg-brand-100"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="/register"
+                      className="flex items-center justify-center rounded-2xl bg-brand-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+                    >
+                      Register
+                    </Link>
+                  </div>
+                )}
               </div>
             </SheetContent>
           </Sheet>
